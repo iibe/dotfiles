@@ -1,0 +1,1 @@
+/home/roman/.fzf/shell/key-bindings.fish
