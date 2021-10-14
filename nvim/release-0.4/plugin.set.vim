@@ -4,7 +4,7 @@ set background=dark
 
 " ? Includes NeoSolarized, onedark, ayu, gruvbox, etc.
 " > https://github.com/rafi/awesome-vim-colorschemes
-colorscheme NeoSolarized
+colorscheme onedark
 
 
 
@@ -13,37 +13,35 @@ colorscheme NeoSolarized
 set showtabline=2
 
 " > https://github.com/vim-airline/vim-airline#smarter-tab-line
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
-" let g:airline_theme = ''
 
 " > https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline#extensions#tabline#left_sep = ''
+"let g:airline#extensions#tabline#left_alt_sep = ''
+"let g:airline#extensions#tabline#right_sep = ''
+"let g:airline#extensions#tabline#right_alt_sep = ''
 
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#whitespace#trailing_format = '[ %s ]'
 
-let g:airline#extensions#whitespace#trailing_format = '[%s]'
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
 
 if (!exists('g:airline_symbols'))
     let g:airline_symbols = {}
 endif
-
 let g:airline_symbols.linenr = ' LN:'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.colnr = ' CN:'
-" let g:airline_symbols.whitespace = 'WS:'
+let g:airline_symbols.maxlinenr = ' '
+let g:airline_symbols.colnr = 'CN:'
+let g:airline_symbols.whitespace = 'WS:'
 
 call airline#parts#define_accent('linenr', 'none')
 call airline#parts#define_accent('maxlinenr', 'none')
-call airline#parts#define_accent('colnr', 'none') 
+call airline#parts#define_accent('colnr', 'none')
 call airline#parts#define_accent('whitespace', 'none')
 
 
@@ -133,6 +131,65 @@ let g:fzf_colors = {
 
 
 
-" # Code Explorer
+" # Version Control System
 
-nnoremap <silent> <leader>tb :TagbarToggle<CR>
+" > https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
+
+nnoremap <silent> <leader>ga :Git add %:p<CR><CR>
+nnoremap <silent> <leader>gc :Gcommit -v -q<CR>
+nnoremap <silent> <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <silent> <leader>gbr :Git branch<Space>
+nnoremap <silent> <leader>gco :Git checkout<Space>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR><CR>
+"nnoremap <silent> <leader>ggl :silent! Glog<CR>:bot copen<CR>
+"nnoremap <silent> <leader>ggr :Ggrep<Space>
+"nnoremap <silent> <leader>gm :Gmove<Space>
+"nnoremap <silent> <leader>gdps :Dispatch! git push<CR>
+"nnoremap <silent> <leader>gdpl :Dispatch! git pull<CR>
+
+
+
+" # Programming Language: LSP's
+
+" ? Disable LSP feature in ALE (COC already have it)
+let g:ale_disable_lsp = 1
+
+" ? Format on save feature in ALE
+let g:ale_fix_on_save = 1
+
+" ? ALE fixers
+let b:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'javascript': ['prettier', 'eslint']
+\ }
+" ? Trigger completion keybinding
+nnoremap <silent> <leader>ac coc#refresh()<CR>
+
+" ? Some servers have issues with backup files
+set nobackup
+set nowritebackup
+
+" ? More space for displaying messages
+set cmdheight=2
+
+" ? Improve UX by increasing update time (default is 4000 ms)
+set updatetime=300
+
+
+
+
+" # Code Explorer (with ctags)
+" nnoremap <silent> <F8> :TagbarToggle<CR>
+
+
+
+
+
+
+
+
+
+

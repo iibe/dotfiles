@@ -9,6 +9,7 @@ nnoremap > >>
 nnoremap < <<
 
 
+
 " Config: (e)dit (c)onfiguration
 nnoremap <silent> <leader>ce :edit $MYVIMRC<CR>
 
@@ -49,6 +50,7 @@ nnoremap <silent> + :vertical resize +3<CR>
 nnoremap <silent> - :vertical resize -3<CR>
 
 
+
 " Buffer: go to previous/next
 nnoremap <silent> <C-h> :bp<CR>
 nnoremap <silent> <C-l> :bn<CR>
@@ -70,13 +72,11 @@ nnoremap <silent> <leader>bg :ls<CR>:buffer<Space>
 
 
 
-" Search: Toggle search matches highlighting
-nnoremap <silent> <leader>sh :set hlsearch! hlsearch?<CR>
+" Toggle: (s)earch matches (h)ighlighting
+nnoremap <silent> <leader>tsh :set hlsearch! hlsearch?<CR>
 
+" Toggle: (l)ine (n)umber (nonumber by default)
+nnoremap <silent> <leader>tln :set number! number?<CR>
 
-
-" Line: Toggle (n)umbering (nonumber by default)
-" nnoremap <silent> <leader>ln :set number! number?<CR>
-
-" Line: Toggle (w)rap (wrap by default)
-" nnoremap <silent> <leader>lw :set wrap! wrap?<CR>
+" Toggle: (w)ord (w)rap (wrap by default)
+nnoremap <silent> <leader>tww :set wrap! wrap?<CR>

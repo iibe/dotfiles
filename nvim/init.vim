@@ -4,10 +4,10 @@ let g:release = 0.4
 " ? Global: Standart path of configuration folder
 let g:nvim = stdpath('config')
 
-" ? Global: Path to vim-plug 
+" ? Global: Path to vim-plug
 let g:vimplug = g:nvim . '/autoload/plug.vim'
 
-" ? Global: Path to folder with plugins 
+" ? Global: Path to folder with plugins
 let g:plugged = g:nvim . '/plugged'
 
 " ? Global: Setup OS (Windows, Linux, Darwin, etc.)
@@ -55,14 +55,14 @@ call s:Import('keybindings.vim')
 call s:Import('plugin.get.vim')
 call s:Import('plugin.set.vim')
 
-" > Windows 
+" > Windows
 "source ~/AppData/Local/nvim/release-0.4/cli.vim
 "source ~/AppData/Local/nvim/release-0.4/gui.vim
 "source ~/AppData/Local/nvim/release-0.4/keybindings.vim
 "source ~/AppData/Local/nvim/release-0.4/plugin.get.vim
 "source ~/AppData/Local/nvim/release-0.4/plugin.set.vim
 
-" > Linux 
+" > Linux
 "source ~/.config/nvim/release-0.4/cli.vim
 "source ~/.config/nvim/release-0.4/gui.vim
 "source ~/.config/nvim/release-0.4/keybindings.vim

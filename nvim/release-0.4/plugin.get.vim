@@ -19,32 +19,32 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " # Fuzzy Find Files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-
-" # Code Explorer
-Plug 'preservim/tagbar'
 
 " # Version Control System 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" # Terminal Multiplexer
-" Plug 'christoomey/vim-tmux-navigator'
-
-" # Comments
-" Plug 'preservim/nerdcommenter'
-
-
-" # Programming Language: Pack
-Plug 'sheerun/vim-polyglot'
-
-" # Programming Language: Syntax Analyzer
+" # Programming Language: LSP's
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'dense-analysis/ale'
 
 " # Programming Language: Typescript 
 Plug 'HerringtonDarkholme/yats.vim'
 
-" # Programming Language: Rust 
-Plug 'rust-lang/rust.vim'
+" # Programming Language: C++
+" # Programming Language: Go (golang)
+
+
+
+
+
+" # Code Explorer
+" Plug 'preservim/tagbar' (ctags requires)
+
+" # Terminal Multiplexer 
+" Plug 'christoomey/vim-tmux-navigator'
+
+" # Comments
+" Plug 'preservim/nerdcommenter'
 
 call plug#end()

@@ -1,7 +1,8 @@
 # Plugins
 
+sources.http
 nvim/plugged
-nvim/sources.http
+nvim/autoload
 
 # Swap
 [._]*.s[a-v][a-z]

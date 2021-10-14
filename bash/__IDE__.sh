@@ -23,6 +23,7 @@ then
     # Setup an additional shell
     tmux new-window -t $SESSION:1 -n 'Terminal'
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
-fi
 
-tmux attach-session -t $SESSION:0
+    # Attach session
+    tmux attach-session -t $SESSION:0
+fi
