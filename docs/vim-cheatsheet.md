@@ -4,8 +4,6 @@ Use [Vim sandbox](vim-sandbox.md) to apply your knowledge about Vim.
 
 ## Table of contents
 
----
-
 - [Introduction](#introduction)
   - [Escape mode](#escape-mode)
   - [History](#history)
@@ -20,8 +18,6 @@ Use [Vim sandbox](vim-sandbox.md) to apply your knowledge about Vim.
 - [Glossary](#glossary)
 
 ## Introduction
-
----
 
 ### Heap
 
@@ -104,8 +100,6 @@ Use [Vim sandbox](vim-sandbox.md) to apply your knowledge about Vim.
 - `:qa!` - `q`uit `a`ll files without changes
 
 ## Commands
-
----
 
 ### Motions
 
@@ -254,8 +248,6 @@ Vim have a **visual mode** (equivalent of mouse drag and select). It works in ki
 
 ## Tips and tricks
 
----
-
 - `/{pattern}<Enter>cgn{text}<Esc>.`
 
 ```typescript
@@ -273,8 +265,6 @@ function tokenHandler(cmd: string, callback: CallbackFunction): void {
 ```
 
 ## Glossary
-
----
 
 - `Command` - vim-action that have effect in your editor (either **operator** or **motion**):
   - `Motion` - allows to move around in **normal mode**.

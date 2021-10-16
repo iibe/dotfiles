@@ -4,34 +4,32 @@ Ubuntu-based OS setup guide.
 
 ## Table of contents
 
----
-
-- [System setup](#system-setup)
+- [System Setup](#system-setup)
   - [Touchpad tap to click](#touchpad-tap-to-click)
   - [Firewall activation](#firewall-activation)
-- [Utilities](#utilities)
+- [System Utilities](#utilities)
   - [Desktop customization interface](#desktop-customization-interface)
   - [RAM performance optimization](#ram-performance-optimization)
   - [Expand battery life time](#expand-battery-life-time)
   - [Save your eyes](#save-your-eyes)
-- [Code enviroment](#code-enviroment)
+- [Code Enviroment](#code-enviroment)
   - [Command line shell](#command-line-shell)
   - [Terminal multiplexer](#terminal-multiplexer)
   - [Text editor](#text-editor)
-- [Code utilities](#code-utilities)
+- [Code Utilities](#code-utilities)
   - [Version control system](#version-control-system)
-  - [Node.js and NPM](#nodejs-and-npm)
-  - [Go programming language](#go-programming-language)
+  - [Node.js and Npm](#nodejs-and-npm)
+  - [Go or Golang](#go-or-golang)
   - [Rust and Cargo](#rust-and-cargo)
 - [Applications](#applications)
   - [Sublime text](#sublime-text)
   - [Torrent client](#torrent-client)
-  - [Spotify free](#spotify-free)
+  - [Spotify free](#spotify-free-ad-killer)
 - [Questions and Answers](#questions-and-answers)
 
-## System setup
+## System Setup
 
----
+Common operation system settings.
 
 ### Touchpad tap to click
 
@@ -45,9 +43,9 @@ Ubuntu-based OS setup guide.
 1. Search for `Firewall`
 1. Status: `ON`, Incoming: `Deny`, Outcoming: `Allow`
 
-## Utilities
+## System Utilities
 
----
+Additional programms, tools and packages.
 
 ### Desktop customization interface
 
@@ -85,9 +83,9 @@ sudo apt-get update
 sudo apt-get install fluxgui
 ```
 
-## Code enviroment
+## Code Enviroment
 
----
+Fish + Tmux + Neovim
 
 ### Command line shell
 
@@ -114,9 +112,9 @@ sudo apt-get update
 sudo apt-get install neovim
 ```
 
-## Code utilities
+## Code Utilities
 
----
+Programming languages, package managers, VCS's etc.
 
 ### Version control system
 
@@ -126,9 +124,9 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
-### Node.js and NPM
+### Node.js and Npm
 
-Using NVM (node version manager):
+Node Version Manager (NVM) - bash script to manage multipe active Node.js versions:
 
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -150,7 +148,7 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 ```
 
-### Go programming language
+### Go or Golang
 
 ```shell
 sudo add-apt-repository ppa:longsleep/golang-backports
@@ -165,8 +163,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ## Applications
-
----
 
 ### Sublime text
 
@@ -183,7 +179,7 @@ sudo apt-get update
 sudo apt-get install deluge
 ```
 
-### Spotify free
+### Spotify Free AdKiller 
 
 ```shell
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
@@ -199,16 +195,14 @@ cd Spotify-AdKiller
 
 ## Questions and answers
 
----
-
-### What a difference between `apt` and `apt-get` ?
+### What a difference between `apt` and `apt-get`?
 
 `apt` (advanced package tool) is a modern and simple version of Ubuntu package manager. It combines `apt-get` and `apt-cache` funtionality, that was completely rewritten for better performance and user experience. To see the list of available commands just type `apt --help`
 
-### What is PPA ?
+### What is PPA?
 
 The PPA (personal package archive) allows application developers and Linux users to create their own repositories to distribute software. With PPA, you can easily get newer software version or software that are not available via the official Ubuntu repositories.
 
-### How to open terminal with shortcut ?
+### How to open terminal with shortcut?
 
 Use `Ctrl + Alt + T` combination.

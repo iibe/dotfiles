@@ -71,8 +71,8 @@ I personally like to use `;` as default leader key. But you can set up anything 
 
 | Shortcut | Action Description                    |
 | :------- | :------------------------------------ |
-| `;tsh`   | Toggle search match result hightlight |
-| `;tln`   | Toggle current line number style      |
+| `;tsh`   | Toggle search highlight |
+| `;tln`   | Toggle line number       |
 | `;tww`   | Toggle text wrap                      |
 
 <!-- Links -->

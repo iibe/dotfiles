@@ -4,8 +4,6 @@ Use [Vim cheatsheet](vim-cheatsheet.md) to see the list of available commands.
 
 ## React hooks implementation
 
----
-
 ```typescript
 /**
  * Copyright (c) 2013-present, Facebook, Inc.

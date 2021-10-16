@@ -4,14 +4,10 @@ Unix-based command line shell with a focus on interactivity and usability.
 
 ## Table of contents
 
----
-
 - [Installation](#installation)
-- [Setup](#setup)
+- [Frameworks and Plugins](#frameworks-and-plugins)
 
 ## Installation
-
----
 
 ```shell
 sudo apt-add-repository ppa:fish-shell/release-3
@@ -21,9 +17,7 @@ sudo apt-get install fish
 
 Don't forget to install powerline-pathed font (either [Powerline][powerline] or [NerdFonts][nerdfonts])
 
-## Setup
-
----
+## Frameworks and Plugins
 
 - [Oh My Fish][oh-my-fish] - framework for Fish
 
@@ -73,7 +67,7 @@ cargo install exa
 go get github.com/x-motemen/ghq
 ```
 
-<!-- Links -->
+<!-- Sources -->
 
 [powerline]: https://github.com/powerline/fonts
 [nerdfonts]: https://github.com/ryanoasis/nerd-fonts
@@ -86,4 +80,3 @@ go get github.com/x-motemen/ghq
 [exa-fix]: https://askubuntu.com/questions/1290500/unable-to-locate-package-for-exa-on-wsl-2-ubuntu
 [ghq]: https://github.com/x-motemen/ghq
 
-<!-- Links -->
