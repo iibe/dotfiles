@@ -1,7 +1,10 @@
 call plug#begin(g:plugged)
 
+" # Seamless Navigation
+Plug 'christoomey/vim-tmux-navigator'
+
 " # Color Themes
-Plug 'rafi/awesome-vim-colorschemes' 
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'overcache/NeoSolarized'
 
 " # Icons Themes
@@ -20,31 +23,18 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" # Version Control System 
+" # Version Control System
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" # Programming Language: LSP's
-Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+" # Language Server Protocol
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 
-" # Programming Language: Typescript 
+" # Programming Language: Typescript
 Plug 'HerringtonDarkholme/yats.vim'
 
-" # Programming Language: C++
 " # Programming Language: Go (golang)
-
-
-
-
-
-" # Code Explorer
-" Plug 'preservim/tagbar' (ctags requires)
-
-" # Terminal Multiplexer 
-" Plug 'christoomey/vim-tmux-navigator'
-
-" # Comments
-" Plug 'preservim/nerdcommenter'
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 call plug#end()

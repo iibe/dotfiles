@@ -51,21 +51,24 @@ call s:Initialize()
 " ? Import vim-script files (using custom function)
 call s:Import('cli.vim')
 call s:Import('gui.vim')
-call s:Import('keybindings.vim')
+call s:Import('lsp.vim')
+call s:Import('keymap.set.vim')
 call s:Import('plugin.get.vim')
 call s:Import('plugin.set.vim')
 
 " > Windows
 "source ~/AppData/Local/nvim/release-0.4/cli.vim
 "source ~/AppData/Local/nvim/release-0.4/gui.vim
-"source ~/AppData/Local/nvim/release-0.4/keybindings.vim
+"source ~/AppData/Local/nvim/release-0.4/lsp.vim
+"source ~/AppData/Local/nvim/release-0.4/keymap.set.vim
 "source ~/AppData/Local/nvim/release-0.4/plugin.get.vim
 "source ~/AppData/Local/nvim/release-0.4/plugin.set.vim
 
 " > Linux
 "source ~/.config/nvim/release-0.4/cli.vim
 "source ~/.config/nvim/release-0.4/gui.vim
-"source ~/.config/nvim/release-0.4/keybindings.vim
+"source ~/.config/nvim/release-0.4/lsp.vim
+"source ~/.config/nvim/release-0.4/keymap.set.vim
 "source ~/.config/nvim/release-0.4/plugin.get.vim
 "source ~/.config/nvim/release-0.4/plugin.set.vim
 
