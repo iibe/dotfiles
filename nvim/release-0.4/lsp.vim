@@ -26,8 +26,7 @@ else
 endif
 
 " ? Use TAB for trigger completion with characters ahead and navigate
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -42,6 +41,8 @@ else
   inoremap <silent><expr> <C-@> coc#refresh()
 endif
 
+" ? COC extension list
+let g:coc_global_extensions = ['coc-marketplace', 'coc-tsserver', 'coc-json', 'coc-html', 'coc-css']
 
 " ? Disable LSP feature in ALE (COC already have it)
 let g:ale_disable_lsp = 1
@@ -49,7 +50,7 @@ let g:ale_disable_lsp = 1
 " ? Format on save feature in ALE
 let g:ale_fix_on_save = 1
 
-" ? ALE fixers
+" ? ALE fixers list
 let b:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'javascript': ['prettier'],
@@ -57,3 +58,4 @@ let b:ale_fixers = {
 
 " ? Trigger completion keybinding
 nnoremap <silent> <leader>ac coc#refresh()<CR>
+
