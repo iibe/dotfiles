@@ -15,6 +15,8 @@ set showtabline=2
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 
+let g:airline#extensions#ale#enabled = 1
+
 " > https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -151,3 +153,18 @@ nnoremap <silent> <leader><leader>gco  :Git checkout<Space>
 "nnoremap <silent> <leader>gm :Gmove<Space>
 "nnoremap <silent> <leader>gdps :Dispatch! git push<CR>
 "nnoremap <silent> <leader>gdpl :Dispatch! git pull<CR>
+
+
+
+" # Class Viewer
+
+" > https://github.com/preservim/tagbar#quickstart
+nnoremap <silent> <leader>tb :TagbarToggle<CR>
+
+
+
+" # Editor Config
+
+" > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+

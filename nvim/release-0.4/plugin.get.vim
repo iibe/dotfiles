@@ -3,6 +3,16 @@ call plug#begin(g:plugged)
 " # Seamless Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
+" # Language Server Protocol
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+
+" # Programming Language: Typescript
+Plug 'HerringtonDarkholme/yats.vim'
+
+" # Programming Language: Go (golang)
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+
 " # Color Themes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'overcache/NeoSolarized'
@@ -27,14 +37,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" # Language Server Protocol
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale'
+" # Class Viewer
+Plug 'preservim/tagbar'
 
-" # Programming Language: Typescript
-Plug 'HerringtonDarkholme/yats.vim'
-
-" # Programming Language: Go (golang)
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+" # Editor Config
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
