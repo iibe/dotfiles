@@ -1,9 +1,17 @@
 " # Color Themes
 
-set background=dark
-
 " > https://github.com/rafi/awesome-vim-colorschemes
-colorscheme onedark
+set termguicolors
+set background=dark
+colorscheme gruvbox
+
+
+
+" # Icons Themes
+
+" > https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+" > https://github.com/powerline/fonts
+set guifont=Hack:h10
 
 
 
@@ -12,7 +20,7 @@ colorscheme onedark
 set showtabline=2
 
 " > https://github.com/vim-airline/vim-airline#smarter-tab-line
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#ale#enabled = 1
@@ -21,17 +29,17 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-" - let g:airline#extensions#tabline#left_sep = ''
-" - let g:airline#extensions#tabline#left_alt_sep = ''
-" - let g:airline#extensions#tabline#right_sep = ''
-" - let g:airline#extensions#tabline#right_alt_sep = ''
+"let g:airline#extensions#tabline#left_sep = ''
+"let g:airline#extensions#tabline#left_alt_sep = ''
+"let g:airline#extensions#tabline#right_sep = ''
+"let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline#extensions#whitespace#trailing_format = '[ %s ]'
 
-" - let g:airline_left_sep = ''
-" - let g:airline_left_alt_sep = ''
-" - let g:airline_right_sep = ''
-" - let g:airline_right_alt_sep = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
 
 if (!exists('g:airline_symbols'))
     let g:airline_symbols = {}
@@ -99,54 +107,54 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " ? Popup window keybindings
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit',
-\ }
+  \'ctrl-t': 'tab split',
+  \'ctrl-x': 'split',
+  \'ctrl-v': 'vsplit',
+\}
 
 " ? Popup window layout (75% of screen size, centered)
 let g:fzf_layout = {
-  \ 'window': {
-    \ 'width': 0.75,
-    \ 'height': 0.75,
-    \ 'xoffset': 0.5,
-    \ 'yoffset': 0.5,
-    \ 'highlight': 'Todo',
-  \ }
-\ }
+  \'window': {
+    \'width': 0.75,
+    \'height': 0.75,
+    \'xoffset': 0.5,
+    \'yoffset': 0.5,
+    \'highlight': 'Todo',
+  \}
+\}
 
 " ? Popup window color scheme
 let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment']
-\ }
+  \'fg': ['fg', 'Normal'],
+  \'bg': ['bg', 'Normal'],
+  \'hl': ['fg', 'Comment'],
+  \'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+  \'hl+': ['fg', 'Statement'],
+  \'info': ['fg', 'PreProc'],
+  \'border': ['fg', 'Ignore'],
+  \'prompt': ['fg', 'Conditional'],
+  \'pointer': ['fg', 'Exception'],
+  \'marker': ['fg', 'Keyword'],
+  \'spinner': ['fg', 'Label'],
+  \'header': ['fg', 'Comment']
+\}
 
 
 
 " # Version Control System
 
 " > https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
-nnoremap <silent> <leader><leader>ga   :Git add<CR>
-nnoremap <silent> <leader><leader>gc   :Git commit<CR>
-nnoremap <silent> <leader><leader>gst  :Git status<CR>
-nnoremap <silent> <leader><leader>gbr  :Git branch<Space>
-nnoremap <silent> <leader><leader>gco  :Git checkout<Space>
+nnoremap <silent> <leader><leader>ga :Git add<CR>
+nnoremap <silent> <leader><leader>gc :Git commit<CR>
+nnoremap <silent> <leader><leader>gst :Git status<CR>
+nnoremap <silent> <leader><leader>gbr :Git branch<Space>
+nnoremap <silent> <leader><leader>gco :Git checkout<Space>
 
-"nnoremap <silent> <leader><leader>gd   :Gdiff<CR>
-"nnoremap <silent> <leader><leader>ge   :Gedit<CR>
-"nnoremap <silent> <leader><leader>gr   :Gread<CR>
-"nnoremap <silent> <leader><leader>gw   :Gwrite<CR>
+"nnoremap <silent> <leader><leader>gd :Gdiff<CR>
+"nnoremap <silent> <leader><leader>ge :Gedit<CR>
+"nnoremap <silent> <leader><leader>gr :Gread<CR>
+"nnoremap <silent> <leader><leader>gw :Gwrite<CR>
 
 "nnoremap <silent> <leader>ggl :silent! Glog<CR>:bot copen<CR>
 "nnoremap <silent> <leader>ggr :Ggrep<Space>
@@ -167,4 +175,3 @@ nnoremap <silent> <leader>tb :TagbarToggle<CR>
 
 " > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-

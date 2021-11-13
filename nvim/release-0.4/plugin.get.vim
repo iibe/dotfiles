@@ -1,16 +1,12 @@
 call plug#begin(g:plugged)
 
-" # Seamless Navigation
+" # Seamless Neovim-Tmux Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" # Language Server Protocol
+" # Language Server Protocol: VS Code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale'
 
-" # Programming Language: Typescript
-Plug 'HerringtonDarkholme/yats.vim'
-
-" # Programming Language: Go (golang)
+" # Language Server Protocol: Go (golang)
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 " # Color Themes

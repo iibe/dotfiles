@@ -1,5 +1,4 @@
 # Custom Ignores
-
 sources.http
 nvim/plugged
 nvim/autoload

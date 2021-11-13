@@ -6,6 +6,7 @@ Minimalist code enviroment for UNIX-like systems.
 
 - `/bash` - contains shell scripts, aliases etc. [Read more](bash/README.md).
 - `/nvim` - contains [Neovim](https://neovim.io/) settings, plugins, keybindings, fonts etc. [Read more](nvim/README.md).
+- `/font` - contains patched fonts (with embedded icon pack). [Read more](fonts/README.md).
 
 ## Glossary
 
