@@ -1,9 +1,8 @@
 " # Color Themes
 
-" > https://github.com/rafi/awesome-vim-colorschemes
-set termguicolors
+" > https://github.com/altercation/vim-colors-solarized
 set background=dark
-colorscheme gruvbox
+colorscheme solarized
 
 
 
@@ -20,7 +19,7 @@ set guifont=Hack:h10
 set showtabline=2
 
 " > https://github.com/vim-airline/vim-airline#smarter-tab-line
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#ale#enabled = 1
@@ -29,17 +28,17 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-"let g:airline#extensions#tabline#left_sep = ''
-"let g:airline#extensions#tabline#left_alt_sep = ''
-"let g:airline#extensions#tabline#right_sep = ''
-"let g:airline#extensions#tabline#right_alt_sep = ''
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline#extensions#whitespace#trailing_format = '[ %s ]'
 
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
 
 if (!exists('g:airline_symbols'))
     let g:airline_symbols = {}
@@ -151,16 +150,16 @@ nnoremap <silent> <leader><leader>gst :Git status<CR>
 nnoremap <silent> <leader><leader>gbr :Git branch<Space>
 nnoremap <silent> <leader><leader>gco :Git checkout<Space>
 
-"nnoremap <silent> <leader><leader>gd :Gdiff<CR>
-"nnoremap <silent> <leader><leader>ge :Gedit<CR>
-"nnoremap <silent> <leader><leader>gr :Gread<CR>
-"nnoremap <silent> <leader><leader>gw :Gwrite<CR>
+" nnoremap <silent> <leader><leader>gd :Gdiff<CR>
+" nnoremap <silent> <leader><leader>ge :Gedit<CR>
+" nnoremap <silent> <leader><leader>gr :Gread<CR>
+" nnoremap <silent> <leader><leader>gw :Gwrite<CR>
 
-"nnoremap <silent> <leader>ggl :silent! Glog<CR>:bot copen<CR>
-"nnoremap <silent> <leader>ggr :Ggrep<Space>
-"nnoremap <silent> <leader>gm :Gmove<Space>
-"nnoremap <silent> <leader>gdps :Dispatch! git push<CR>
-"nnoremap <silent> <leader>gdpl :Dispatch! git pull<CR>
+" nnoremap <silent> <leader>ggl :silent! Glog<CR>:bot copen<CR>
+" nnoremap <silent> <leader>ggr :Ggrep<Space>
+" nnoremap <silent> <leader>gm :Gmove<Space>
+" nnoremap <silent> <leader>gdps :Dispatch! git push<CR>
+" nnoremap <silent> <leader>gdpl :Dispatch! git pull<CR>
 
 
 

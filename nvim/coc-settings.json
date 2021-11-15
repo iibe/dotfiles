@@ -12,11 +12,13 @@
     "json"
   ],
   "languageserver": {
-    "go": {
+    "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
+      "rootPatterns": ["go.mod", "./vim", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     }
   }
 }

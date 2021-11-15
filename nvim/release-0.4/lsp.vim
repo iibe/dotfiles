@@ -36,7 +36,7 @@ function! s:check_back_space() abort
 endfunction
 
 " ? Use `Ctrl + Space` to trigger completion
-if has('nvim')
+if has("nvim")
   inoremap <silent><expr> <C-Space> coc#refresh()
 else
   inoremap <silent><expr> <C-@> coc#refresh()
@@ -95,7 +95,7 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
 
-" ? Fix syntax out-of-sync highlighting In large files
+" ? Fix syntax out-of-sync highlighting in large files
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 

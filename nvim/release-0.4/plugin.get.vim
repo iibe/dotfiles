@@ -10,8 +10,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 " # Color Themes
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'overcache/NeoSolarized'
+Plug 'altercation/vim-colors-solarized'
 
 " # Icons Themes
 Plug 'ryanoasis/vim-devicons'

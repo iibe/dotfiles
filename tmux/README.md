@@ -2,4 +2,4 @@
 
 ## How to use
 
-1. Copy all files from this folder in `~/.config/tmux` directory.
+1. Copy file from this folder in `~/.tmux.conf` directory.

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Constants
-SESSION='IDE'
+SESSION='DSA'
 SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
 
 # Create Tmux session only if it doesn't exists
@@ -12,13 +12,12 @@ then
     # Rename window
     tmux rename-window -t 0 'Editor'
     # Pane layout
-    tmux split-window -v -p 20
+    tmux split-window -h -p 25
+    
     tmux send-keys -t 'Editor' 'fish' C-m 'clear' C-m
-    tmux split-window -h -p 66
+    tmux split-window -v -p 50
     tmux send-keys -t 'Editor' 'fish' C-m 'clear' C-m
-    tmux split-window -h -p 50
-    tmux send-keys -t 'Editor' 'fish' C-m 'clear' C-m
-    tmux select-pane -U
+    tmux select-pane -L
 
     tmux send-keys -t 'Editor' 'fish' C-m 'clear' C-m 'nvim' C-m
     

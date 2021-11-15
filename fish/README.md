@@ -79,4 +79,3 @@ go get github.com/x-motemen/ghq
 [exa]: https://github.com/ogham/exa
 [exa-fix]: https://askubuntu.com/questions/1290500/unable-to-locate-package-for-exa-on-wsl-2-ubuntu
 [ghq]: https://github.com/x-motemen/ghq
-

@@ -28,7 +28,7 @@ function! s:Initialize() abort
 endfunction
 
 function! s:Afterwards() abort
-  " Note: Run `:PlugInstall` if there are missing plugins
+  " Note: Run :PlugInstall if there are missing plugins
   if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     autocmd VimEnter * PlugInstall --sync
     autocmd VimEnter * source $MYVIMRC
@@ -36,7 +36,7 @@ function! s:Afterwards() abort
 endfunction
 
 function! s:Import(file) abort
-  " Note: Import files from ./release-<major.minor>/<filename> directory
+  " Note: Import files from ./release-<major.minor>/<filename>
   let l:path = join([g:nvim, 'release-' . string(g:release), a:file], '/')
   execute 'source ' . l:path
 endfunction
@@ -55,20 +55,20 @@ call s:Import('plugin.get.vim')
 call s:Import('plugin.set.vim')
 
 " > Windows
-"source ~/AppData/Local/nvim/release-0.4/cmd.vim
-"source ~/AppData/Local/nvim/release-0.4/gui.vim
-"source ~/AppData/Local/nvim/release-0.4/lsp.vim
-"source ~/AppData/Local/nvim/release-0.4/keymap.set.vim
-"source ~/AppData/Local/nvim/release-0.4/plugin.get.vim
-"source ~/AppData/Local/nvim/release-0.4/plugin.set.vim
+" source ~/AppData/Local/nvim/release-0.4/cmd.vim
+" source ~/AppData/Local/nvim/release-0.4/gui.vim
+" source ~/AppData/Local/nvim/release-0.4/lsp.vim
+" source ~/AppData/Local/nvim/release-0.4/keymap.set.vim
+" source ~/AppData/Local/nvim/release-0.4/plugin.get.vim
+" source ~/AppData/Local/nvim/release-0.4/plugin.set.vim
 
 " > Linux
-"source ~/.config/nvim/release-0.4/cmd.vim
-"source ~/.config/nvim/release-0.4/gui.vim
-"source ~/.config/nvim/release-0.4/lsp.vim
-"source ~/.config/nvim/release-0.4/keymap.set.vim
-"source ~/.config/nvim/release-0.4/plugin.get.vim
-"source ~/.config/nvim/release-0.4/plugin.set.vim
+" source ~/.config/nvim/release-0.4/cmd.vim
+" source ~/.config/nvim/release-0.4/gui.vim
+" source ~/.config/nvim/release-0.4/lsp.vim
+" source ~/.config/nvim/release-0.4/keymap.set.vim
+" source ~/.config/nvim/release-0.4/plugin.get.vim
+" source ~/.config/nvim/release-0.4/plugin.set.vim
 
 " ? Check system health after initialization
 call s:Afterwards()
