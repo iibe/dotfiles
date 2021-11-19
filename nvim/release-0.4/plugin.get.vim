@@ -3,6 +3,9 @@ call plug#begin(g:plugged)
 " # Seamless Neovim-Tmux Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
+" # Tmux status line
+Plug 'edkolev/tmuxline.vim'
+
 " # Language Server Protocol: VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

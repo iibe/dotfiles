@@ -7,8 +7,8 @@ set hidden
 " ? Some servers have issues with backup files
 set nobackup nowritebackup
 
-" ? Set message box size
-set cmdheight=3
+" ? Set command line size 
+set cmdheight=1
 
 " ? Set autosuggestions popup menu size
 set pumheight=8
@@ -45,9 +45,9 @@ else
 endif
 
 " ? Make <CR> auto-select the first completion item and notify CoC to format on ENTER (might be annoying in some cases)
-inoremap <silent><expr> <CR> pumvisible()
-  \ ? coc#_select_confirm()
-  \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent><expr> <CR> pumvisible()
+"   \ ? coc#_select_confirm()
+"   \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " ? Use `[g` and `]g` to navigate diagnostics. Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -138,8 +138,8 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " ? Use <C-s> for selections ranges (requires `textDocument/selectionRange` support of language server)
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " ? Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocAction('format')

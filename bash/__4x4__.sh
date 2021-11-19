@@ -23,6 +23,7 @@ then
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
     tmux split-window -h -p 50
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
+
     tmux select-pane -U
 
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
@@ -32,6 +33,7 @@ then
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
     tmux split-window -h -p 50
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
+
     tmux select-pane -U
 
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
@@ -41,6 +43,7 @@ then
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
     tmux split-window -h -p 50
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
+
     tmux select-pane -U
 
     tmux send-keys -t 'Terminal' 'fish' C-m 'clear' C-m
