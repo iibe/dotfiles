@@ -1,51 +1,33 @@
-" # Encoding
+" ? Encoding
 set encoding=utf-8
 
-" # Language
-" language en_US
-
-" # Syntax highlighting
+" ? Syntax highlighting
 syntax enable
-filetype plugin indent on
 
-" # Window split 
-set splitright
-set splitbelow
+" ? Window split
+set splitright splitbelow
 
-" # Disable --MODE-- in Neovim CLI
+" ? Disable --MODE-- duplication in CLI
 set noshowmode
 
-" # Disable search highlight
+" ? Disable search highlighting
 set nohlsearch
 
-" # Set popup menu height 
-set pumheight=8
-
-" # Set multiple buffers behavior
+" ? Multiple buffers
 set hidden
 
-" # Clipboard
+" ? Clipboard
 set clipboard=unnamedplus
 
-" # Mouse
-set mouse=a
-set ruler
-set guioptions-=r
+" ? Mouse 
+set mouse=a ruler
 
-" # Line number
-set number
-set relativenumber
-set cursorline
-set lazyredraw
+" ? Line number
+set number relativenumber cursorline
 
-" # Indentation
-set autoindent
-set smartindent
-set expandtab
-set smarttab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+" ? Word wrap
+set wrap linebreak nolist
 
-" # Text
-set wrap
+" ? Autosave
+set autowrite noswapfile
+

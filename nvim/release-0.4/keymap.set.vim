@@ -1,30 +1,30 @@
-" Common: Leader key
+" Common: leader key
 let g:mapleader=';'
 
-" Common: Avoid escape key
+" Common: avoid escape key
 inoremap <leader><leader> <ESC>
 
-" Common: No repeat indentation key
+" Common: no repeat indentation key
 nnoremap > >>
 nnoremap < <<
 
 
 
-" Config: (e)dit (c)onfiguration
+" Config: edit configuration
 nnoremap <silent> <leader>ce :edit $MYVIMRC<CR>
 
-" Config: (s)ave (c)onfiguration
+" Config: save configuration
 nnoremap <silent> <leader>cs :source $MYVIMRC<CR>
 
 
 
-" Filesystem: Save file
+" Filesystem: save file
 nnoremap <C-s> :w<CR>
 
-" Filesystem: Save file and quit
+" Filesystem: save file and quit
 nnoremap <C-q> :x<CR>
 
-" Filesystem: Explore the directory containing the given file
+" Filesystem: explore the directory containing the given file
 nnoremap <C-e> :Explore<CR>
 
 
@@ -43,11 +43,12 @@ nnoremap <silent> <leader>wo <C-w>o<CR>
 nnoremap <silent> + :vertical resize +3<CR>
 nnoremap <silent> - :vertical resize -3<CR>
 
-" Window: move between windows (vim-tmux-navigator already got it)
+" Window: move between windows (`vim-tmux-navigator` already got it)
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-j> <C-w>j
 " nnoremap <C-k> <C-w>k
 " nnoremap <C-l> <C-w>l
+
 
 
 " Buffer: go to previous/next buffer
@@ -67,7 +68,7 @@ nnoremap <silent> <leader>bk :bd!<CR>
 nnoremap <silent> <leader>be :ls<CR>
 
 " Buffer: go to buffer (type a number of buffer and press ENTER)
-nnoremap <silent> <leader>bg :ls<CR>:buffer<Space>
+nnoremap <silent> <leader>bg :ls<CR>:buffer<CR>
 
 " Buffer: go to n-th buffer
 nnoremap <silent> <leader>1 :1b<CR>
@@ -81,15 +82,31 @@ nnoremap <silent> <leader>8 :8b<CR>
 nnoremap <silent> <leader>9 :9b<CR>
 
 " Buffer: go to last used buffer
-nnoremap <silent> <leader>0 :#e<CR>
+nnoremap <silent> <leader>0 :e#<CR>
 
 
 
-" Toggle: (s)earch matches (h)ighlighting
+" Toggle: search matches highlighting
 nnoremap <silent> <leader>tsh :set hlsearch! hlsearch?<CR>
 
-" Toggle: (l)ine (n)umber (nonumber by default)
+" Toggle: line number (nonumber by default)
 nnoremap <silent> <leader>tln :set number! number?<CR>
 
-" Toggle: (w)ord (w)rap (wrap by default)
+" Toggle: word wrap (wrap by default)
 nnoremap <silent> <leader>tww :set wrap! wrap?<CR>
+
+" Toggle: color mode (dark by default)
+nnoremap <silent> <leader>tcm :call <SID>toggle_background()<CR>
+
+function! s:toggle_background()
+    if (&background == 'dark')
+        set background=light
+    else 
+        set background=dark
+    endif
+
+    try
+        execute "AirlineRefresh"
+    catch
+    endtry
+endfunction

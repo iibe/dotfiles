@@ -1,3 +1,10 @@
+" # Editor Config
+
+" > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+
+
 " # Color Themes
 
 " > https://github.com/altercation/vim-colors-solarized
@@ -6,23 +13,18 @@ colorscheme solarized
 
 
 
-" # Icons Themes
+" # Start Page
 
-" > https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
-" > https://github.com/powerline/fonts
-set guifont=Hack:h10
+let g:startify_custom_header = []
 
 
 
 " # Status Bar Line
 
-set showtabline=2
-
 " > https://github.com/vim-airline/vim-airline#smarter-tab-line
+set showtabline=2
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
-
-let g:airline#extensions#ale#enabled = 1
 
 " > https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
 let g:airline#extensions#tabline#enabled = 1
@@ -83,11 +85,11 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 
 " # Fuzzy Find Files (with ripgrep and bat)
 
-" ? Exact search
+" ? Exact search keybindings
 nnoremap <silent> <leader>fe :FZF<CR>
 nnoremap <silent> <leader>fh :FZF ~<CR>
 
-" ? Fuzzy search
+" ? Fuzzy search keybindings
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fr :Rg<CR>
@@ -144,22 +146,19 @@ let g:fzf_colors = {
 " # Version Control System
 
 " > https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
-nnoremap <silent> <leader><leader>ga :Git add<CR>
-nnoremap <silent> <leader><leader>gc :Git commit<CR>
-nnoremap <silent> <leader><leader>gst :Git status<CR>
-nnoremap <silent> <leader><leader>gbr :Git branch<Space>
-nnoremap <silent> <leader><leader>gco :Git checkout<Space>
+" nnoremap <silent> <leader><leader>ga :Git add<CR>
+" nnoremap <silent> <leader><leader>gc :Git commit<CR>
+" nnoremap <silent> <leader><leader>gst :Git status<CR>
+" nnoremap <silent> <leader><leader>gbr :Git branch<Space>
+" nnoremap <silent> <leader><leader>gco :Git checkout<Space>
 
 " nnoremap <silent> <leader><leader>gd :Gdiff<CR>
 " nnoremap <silent> <leader><leader>ge :Gedit<CR>
 " nnoremap <silent> <leader><leader>gr :Gread<CR>
 " nnoremap <silent> <leader><leader>gw :Gwrite<CR>
-
-" nnoremap <silent> <leader>ggl :silent! Glog<CR>:bot copen<CR>
-" nnoremap <silent> <leader>ggr :Ggrep<Space>
-" nnoremap <silent> <leader>gm :Gmove<Space>
-" nnoremap <silent> <leader>gdps :Dispatch! git push<CR>
-" nnoremap <silent> <leader>gdpl :Dispatch! git pull<CR>
+" nnoremap <silent> <leader><leader>gm :Gmove<Space>
+" nnoremap <silent> <leader><leader>gdps :Dispatch! git push<CR>
+" nnoremap <silent> <leader><leader>gdpl :Dispatch! git pull<CR>
 
 
 
@@ -167,10 +166,3 @@ nnoremap <silent> <leader><leader>gco :Git checkout<Space>
 
 " > https://github.com/preservim/tagbar#quickstart
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
-
-
-
-" # Editor Config
-
-" > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']

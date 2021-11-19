@@ -12,3 +12,6 @@ alias 3x3='bash __3x3__.sh'
 
 # Terminal lines: x16
 alias 4x4='bash __4x4__.sh'
+
+# Go live reload
+alias air='$(go env GOPATH)/bin/air'

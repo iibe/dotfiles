@@ -3,17 +3,23 @@ call plug#begin(g:plugged)
 " # Seamless Neovim-Tmux Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" # Language Server Protocol: VS Code
+" # Language Server Protocol: VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " # Language Server Protocol: Go (golang)
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+
+" # Editor Config
+Plug 'editorconfig/editorconfig-vim'
 
 " # Color Themes
 Plug 'altercation/vim-colors-solarized'
 
 " # Icons Themes
 Plug 'ryanoasis/vim-devicons'
+
+" # Start Page
+Plug 'mhinz/vim-startify'
 
 " # Status Bar Line
 Plug 'vim-airline/vim-airline'
@@ -34,8 +40,5 @@ Plug 'airblade/vim-gitgutter'
 
 " # Class Viewer
 Plug 'preservim/tagbar'
-
-" # Editor Config
-Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
