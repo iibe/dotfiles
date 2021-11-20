@@ -1,6 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "eslint.autoFixOnSave": true,
   "prettier.disableSuccessMessage": true,
   "coc.preferences.formatOnSaveFiletypes": [

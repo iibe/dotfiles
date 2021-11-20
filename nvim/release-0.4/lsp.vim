@@ -19,6 +19,12 @@ set updatetime=300
 " ? Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
+" ? Threat the dash-separated keyword as a text object
+set iskeyword+=-
+
+" ? Stop new line to be continuation of comment
+set formatoptions-=cro
+
 " ? Always show the signcolumn, otherwise it would shift the text each time diagnostics appear or become resolved
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   set signcolumn=number
@@ -166,13 +172,13 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ? CoC extension list
 let g:coc_global_extensions = [
+  \'coc-pairs',
   \'coc-marketplace',
   \'coc-tsserver',
   \'coc-html',
   \'coc-css',
   \'coc-json',
   \'coc-toml',
-  \'coc-pairs'
 \]
 
 " ? Run Prettier or ESLint if its has been installed in node_modules
@@ -200,15 +206,21 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 " ? Syntax highlighting
+let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 
-" ? Auto formatting and importing
-let g:go_fmt_autosave = 1
+" ? Highlight variables you cursor is on
+let g:go_same_ids = 0
+
+" ? Auto format and imports
 let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
 
 " ? Status line types/signatures
 let g:go_auto_type_info = 1
@@ -229,7 +241,7 @@ autocmd FileType go nmap <leader>gor <Plug>(go-run)
 autocmd FileType go nmap <leader>got <Plug>(go-test)
 
 " ? Auto-format and add missing imports on save
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " ? Disable `:GoDef` shortcut (CoC already got it)
 let g:go_def_mapping_enabled = 0
