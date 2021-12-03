@@ -1,20 +1,17 @@
-" # Editor Config
-
-" > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-
-
 " # Color Themes
 
 " > https://github.com/altercation/vim-colors-solarized
-set background=dark
 colorscheme solarized
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_bold = 1
+set background=dark
 
 
 
 " # Start Page
 
+" > https://github.com/mhinz/vim-startify/wiki/Example-configurations
 let g:startify_custom_header = []
 
 
@@ -22,9 +19,9 @@ let g:startify_custom_header = []
 " # Status Bar Line
 
 " > https://github.com/vim-airline/vim-airline#smarter-tab-line
-set showtabline=2
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
+set showtabline=2
 
 " > https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
 let g:airline#extensions#tabline#enabled = 1
@@ -46,9 +43,9 @@ if (!exists('g:airline_symbols'))
     let g:airline_symbols = {}
 endif
 
-let g:airline_symbols.linenr = ' LN:'
+let g:airline_symbols.linenr = ' Y:'
 let g:airline_symbols.maxlinenr = ' '
-let g:airline_symbols.colnr = 'CN:'
+let g:airline_symbols.colnr = ' X:'
 let g:airline_symbols.whitespace = 'WS:'
 
 call airline#parts#define_accent('linenr', 'none')
@@ -113,16 +110,19 @@ let g:fzf_action = {
   \'ctrl-v': 'vsplit',
 \}
 
-" ? Popup window layout (75% of screen size, centered)
+" ? Popup window layout (90% of screen size, centered)
 let g:fzf_layout = {
   \'window': {
-    \'width': 0.75,
-    \'height': 0.75,
+    \'width': 0.90,
+    \'height': 0.90,
     \'xoffset': 0.5,
     \'yoffset': 0.5,
     \'highlight': 'Todo',
   \}
 \}
+
+" ? Preview window layout (50% on top)
+let g:fzf_preview_window = ['up:50%', 'ctrl-/']
 
 " ? Popup window color scheme
 let g:fzf_colors = {
@@ -145,7 +145,24 @@ let g:fzf_colors = {
 
 " # Version Control System
 
+" > https://github.com/airblade/vim-gitgutter#customisation
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
+
+" ? Custom signs
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = 'M'
+let g:gitgutter_sign_modified_removed = 'W'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_removed_above_and_below = "↕"
+
+" ? Sign column background highlight fix
+highlight clear signcolumn
+autocmd ColorScheme * highlight! link SignColumn LineNr
+
 " > https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
+
 " nnoremap <silent> <leader><leader>ga :Git add<CR>
 " nnoremap <silent> <leader><leader>gc :Git commit<CR>
 " nnoremap <silent> <leader><leader>gst :Git status<CR>
@@ -159,10 +176,3 @@ let g:fzf_colors = {
 " nnoremap <silent> <leader><leader>gm :Gmove<Space>
 " nnoremap <silent> <leader><leader>gdps :Dispatch! git push<CR>
 " nnoremap <silent> <leader><leader>gdpl :Dispatch! git pull<CR>
-
-
-
-" # Class Viewer
-
-" > https://github.com/preservim/tagbar#quickstart
-nnoremap <silent> <leader>tb :TagbarToggle<CR>

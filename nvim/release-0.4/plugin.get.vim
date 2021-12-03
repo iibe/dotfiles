@@ -3,26 +3,38 @@ call plug#begin(g:plugged)
 " # Seamless Neovim-Tmux Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" # Tmux status line
+" # Tmux Status Line
 Plug 'edkolev/tmuxline.vim'
 
-" # Language Server Protocol: VSCode
+" # Language Server Protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" # Language Server Protocol: Go (golang)
+" # Language Support: Go
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
-" # Editor Config
+" # Language Support: .editorconfig
 Plug 'editorconfig/editorconfig-vim'
+
+" # Start Page
+Plug 'mhinz/vim-startify'
+
+" # Auto Pairs
+Plug 'jiangmiao/auto-pairs'
+
+" # Change Surround
+Plug 'tpope/vim-surround'
+
+" # Comments
+Plug 'tpope/vim-commentary'
+
+" # WakaTime Statistic
+Plug 'wakatime/vim-wakatime'
 
 " # Color Themes
 Plug 'altercation/vim-colors-solarized'
 
 " # Icons Themes
 Plug 'ryanoasis/vim-devicons'
-
-" # Start Page
-Plug 'mhinz/vim-startify'
 
 " # Status Bar Line
 Plug 'vim-airline/vim-airline'
@@ -40,8 +52,5 @@ Plug 'junegunn/fzf.vim'
 " # Version Control System
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
-" # Class Viewer
-Plug 'preservim/tagbar'
 
 call plug#end()

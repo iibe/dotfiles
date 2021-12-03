@@ -3,11 +3,27 @@ let g:mapleader=';'
 
 " Common: avoid escape key
 inoremap <leader><leader> <ESC>
+" inoremap jj <ESC>
+" inoremap kk <ESC>
+" inoremap jk <ESC>
+" inoremap kj <ESC>
+
+" Common: simple multiline nagivation
+nnoremap j gj
+nnoremap k gk
 
 " Common: no repeat indentation key
 nnoremap > >>
 nnoremap < <<
 
+" Common: yank until EOL
+nnoremap Y y$
+
+" Common: simple start/end axis navigation
+nnoremap gh 0
+nnoremap gl $
+nnoremap gj L
+nnoremap gk H
 
 
 " Config: edit configuration
@@ -26,6 +42,15 @@ nnoremap <C-q> :x<CR>
 
 " Filesystem: explore the directory containing the given file
 nnoremap <C-e> :Explore<CR>
+
+" Filesystem: create new file
+nnoremap <C-n> :!touch<Space>
+
+" Filesystem: create new directory
+nnoremap <C-d> :!mkdir<Space>
+
+" Filesystem: move file
+nnoremap <C-m> :!mv<Space>%<Space>
 
 
 
@@ -101,7 +126,7 @@ nnoremap <silent> <leader>tcm :call <SID>toggle_background()<CR>
 function! s:toggle_background()
     if (&background == 'dark')
         set background=light
-    else 
+    else
         set background=dark
     endif
 

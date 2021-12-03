@@ -7,7 +7,7 @@ set hidden
 " ? Some servers have issues with backup files
 set nobackup nowritebackup
 
-" ? Set command line size 
+" ? Set command line size
 set cmdheight=1
 
 " ? Set autosuggestions popup menu size
@@ -81,7 +81,7 @@ endfunction
 " ? Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" ? Rename symbol 
+" ? Rename symbol
 nmap <leader><leader>r <Plug>(coc-rename)
 
 " ? Format selected code
@@ -121,25 +121,25 @@ omap ac <Plug>(coc-classobj-a)
 
 " ? Remap <C-f> and <C-b> for scroll float windows/popups
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() 
-    \ ? coc#float#scroll(1) 
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll()
+    \ ? coc#float#scroll(1)
     \ : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() 
-    \ ? coc#float#scroll(0) 
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll()
+    \ ? coc#float#scroll(0)
     \ : "\<C-b>"
 
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() 
-    \ ? "\<c-r>=coc#float#scroll(1)\<CR>" 
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll()
+    \ ? "\<c-r>=coc#float#scroll(1)\<CR>"
     \ : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() 
-    \ ? "\<c-r>=coc#float#scroll(0)\<CR>" 
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll()
+    \ ? "\<c-r>=coc#float#scroll(0)\<CR>"
     \ : "\<Left>"
 
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() 
-    \ ? coc#float#scroll(1) 
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll()
+    \ ? coc#float#scroll(1)
     \ : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() 
-    \ ? coc#float#scroll(0) 
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll()
+    \ ? coc#float#scroll(0)
     \ : "\<C-b>"
 endif
 
@@ -172,13 +172,15 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ? CoC extension list
 let g:coc_global_extensions = [
-  \'coc-pairs',
-  \'coc-marketplace',
-  \'coc-tsserver',
-  \'coc-html',
   \'coc-css',
+  \'coc-eslint',
+  \'coc-html',
   \'coc-json',
+  \'coc-marketplace',
+  \'coc-prettier',
   \'coc-toml',
+  \'coc-tsserver',
+  \'coc-yaml',
 \]
 
 " ? Run Prettier or ESLint if its has been installed in node_modules
@@ -199,7 +201,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 
-" # Language Server Protocol: Go
+" # Language Support: Go
 
 " > https://github.com/golang/tools/blob/master/gopls/doc/vim.md#cocnvim
 let g:go_def_mode='gopls'
@@ -218,7 +220,7 @@ let g:go_highlight_generate_tags = 1
 " ? Highlight variables you cursor is on
 let g:go_same_ids = 0
 
-" ? Auto format and imports
+" ? Auto format and imports on save
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
 
@@ -235,13 +237,17 @@ function! s:build_go_files()
   endif
 endfunction
 
-" ? Key bindings for build, run, test etc. 
+" ? Key bindings for build, run, test etc.
 autocmd FileType go nmap <leader>gob :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>gor <Plug>(go-run)
 autocmd FileType go nmap <leader>got <Plug>(go-test)
 
-" ? Auto-format and add missing imports on save
-" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
 " ? Disable `:GoDef` shortcut (CoC already got it)
 let g:go_def_mapping_enabled = 0
+
+
+
+" # Language Support: .editorconfig
+
+" > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']

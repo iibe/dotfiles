@@ -7,7 +7,7 @@ syntax enable
 " ? Window split
 set splitright splitbelow
 
-" ? Disable --MODE-- duplication in CLI
+" ? Disable CLI --MODE-- message
 set noshowmode
 
 " ? Disable search highlighting
@@ -16,10 +16,10 @@ set nohlsearch
 " ? Multiple buffers
 set hidden
 
-" ? Clipboard
-set clipboard=unnamedplus
+" ? Use system clipboard
+set clipboard+=unnamedplus
 
-" ? Mouse 
+" ? Mouse
 set mouse=a ruler
 
 " ? Line number
@@ -31,3 +31,5 @@ set wrap linebreak nolist
 " ? Autosave
 set autowrite noswapfile
 
+" ? Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e

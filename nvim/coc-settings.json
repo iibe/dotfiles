@@ -3,7 +3,10 @@
   "suggest.noselect": true,
   "eslint.autoFixOnSave": true,
   "prettier.disableSuccessMessage": true,
+  "prettier.requireConfig": true,
   "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
     "javascript",
     "javascriptreact",
     "typescript",
