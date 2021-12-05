@@ -2,7 +2,7 @@
 filetype plugin indent on
 
 " ? Common indentation
-set expandtab
+set autoindent expandtab
 set shiftwidth=4 softtabstop=4
 
 " ? Filetype indentation

@@ -25,12 +25,12 @@ set iskeyword+=-
 " ? Stop new line to be continuation of comment
 set formatoptions-=cro
 
-" ? Always show the signcolumn, otherwise it would shift the text each time diagnostics appear or become resolved
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" ? Always show the signcolumn, otherwise it would shift the text each time diagnostics appear or become resolved (disable, because of vim-gitgutter problems)
+" if has("nvim-0.5.0") || has("patch-8.1.1564")
+"   set signcolumn=number
+" else
+"   set signcolumn=yes
+" endif
 
 " ? Use TAB for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <TAB> pumvisible()

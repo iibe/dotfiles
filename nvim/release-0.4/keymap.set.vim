@@ -35,22 +35,22 @@ nnoremap <silent> <leader>cs :source $MYVIMRC<CR>
 
 
 " Filesystem: save file
-nnoremap <C-s> :w<CR>
+nnoremap <silent> <C-s> :w<CR>
 
 " Filesystem: save file and quit
-nnoremap <C-q> :x<CR>
+nnoremap <silent> <C-q> :x<CR>
 
 " Filesystem: explore the directory containing the given file
-nnoremap <C-e> :Explore<CR>
+nnoremap <silent> <C-e> :Explore<CR>
 
 " Filesystem: create new file
-nnoremap <C-n> :!touch<Space>
+nnoremap <C-S-n> :!touch<Space>
 
 " Filesystem: create new directory
-nnoremap <C-d> :!mkdir<Space>
+nnoremap <C-S-d> :!mkdir<Space>
 
-" Filesystem: move file
-nnoremap <C-m> :!mv<Space>%<Space>
+" Filesystem: move (rename) file
+nnoremap <C-S-m> :!mv<Space>%<Space>
 
 
 

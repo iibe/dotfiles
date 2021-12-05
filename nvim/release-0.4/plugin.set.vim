@@ -32,7 +32,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
 
-let g:airline#extensions#whitespace#trailing_format = '[ %s ]'
+let g:airline#extensions#whitespace#trailing_format = '%s'
 
 " let g:airline_left_sep = ''
 " let g:airline_left_alt_sep = ''
@@ -58,22 +58,50 @@ call airline#parts#define_accent('whitespace', 'none')
 " # File Explorer
 
 nnoremap <silent> <Space> :NERDTreeToggle<CR>
+nnoremap <silent> <C-n> :NERDTree<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
+nnoremap <silent> <C-t> :NERDTreeFocus<CR>
 
 " > https://github.com/preservim/nerdtree#installation
 let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeHighlightCursorline = 0
 
-" ? Show relative line numbers in NERDTree window
+" ? Change default directory icons
+let g:NERDTreeDirArrowExpandable = '⮞'
+let g:NERDTreeDirArrowCollapsible = '⮟'
+
+" ? Show relative line numbers
 let g:NERDTreeShowLineNumbers = 1
-autocmd FileType nerdtree setlocal relativenumber
+autocmd FileType NERDTree setlocal relativenumber
 
-" ? Correct behavior of :q if only NERDTree window is left opened
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+" ? Close the tab if NERDTree is the only window remaining in it
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" ? If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " > https://github.com/Xuyuanp/nerdtree-git-plugin#installation
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 
+" ? Set custom signs for different Git statuses
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ 'Untracked' :'∪',
+    \ 'Modified'  :'≈',
+    \ 'Staged'    :'+',
+    \ 'Renamed'   :'➜',
+    \ 'Deleted'   :'⨉',
+    \ 'Unmerged'  :'∩',
+    \ 'Unknown'   :'?',
+    \ 'Ignored'   :'⦸',
+    \ 'Clean'     :'☐',
+    \ 'Dirty'     :'☒',
+\ }
+
 " > https://github.com/tiagofumo/vim-nerdtree-syntax-highlight#installation
+
+" ? Highlight full name (not only icons)
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -105,41 +133,41 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " ? Popup window keybindings
 let g:fzf_action = {
-  \'ctrl-t': 'tab split',
-  \'ctrl-x': 'split',
-  \'ctrl-v': 'vsplit',
-\}
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-h': 'split',
+    \ 'ctrl-v': 'vsplit',
+\ }
 
 " ? Popup window layout (90% of screen size, centered)
 let g:fzf_layout = {
-  \'window': {
-    \'width': 0.90,
-    \'height': 0.90,
-    \'xoffset': 0.5,
-    \'yoffset': 0.5,
-    \'highlight': 'Todo',
-  \}
-\}
+    \ 'window': {
+        \ 'width': 0.90,
+        \ 'height': 0.90,
+        \ 'xoffset': 0.5,
+        \ 'yoffset': 0.5,
+        \ 'highlight': 'Todo',
+    \ }
+\ }
 
-" ? Preview window layout (50% on top)
-let g:fzf_preview_window = ['up:50%', 'ctrl-/']
+" ? Preview window layout
+let g:fzf_preview_window = ['right:75%', 'ctrl-/']
 
 " ? Popup window color scheme
 let g:fzf_colors = {
-  \'fg': ['fg', 'Normal'],
-  \'bg': ['bg', 'Normal'],
-  \'hl': ['fg', 'Comment'],
-  \'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \'bg+': ['bg', 'CursorLine', 'CursorColumn'],
-  \'hl+': ['fg', 'Statement'],
-  \'info': ['fg', 'PreProc'],
-  \'border': ['fg', 'Ignore'],
-  \'prompt': ['fg', 'Conditional'],
-  \'pointer': ['fg', 'Exception'],
-  \'marker': ['fg', 'Keyword'],
-  \'spinner': ['fg', 'Label'],
-  \'header': ['fg', 'Comment']
-\}
+    \ 'fg': ['fg', 'Normal'],
+    \ 'bg': ['bg', 'Normal'],
+    \ 'hl': ['fg', 'Comment'],
+    \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+': ['fg', 'Statement'],
+    \ 'info': ['fg', 'PreProc'],
+    \ 'border': ['fg', 'Ignore'],
+    \ 'prompt': ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker': ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header': ['fg', 'Comment']
+\ }
 
 
 
@@ -149,17 +177,21 @@ let g:fzf_colors = {
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 
-" ? Custom signs
+" ? Custom signcolumn colors
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" ? Custom signcolumn icons
 let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = 'M'
-let g:gitgutter_sign_modified_removed = 'W'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_modified_removed = '≃'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
-let g:gitgutter_sign_removed_above_and_below = "↕"
+let g:gitgutter_sign_removed_above_and_below = '↕'
 
 " ? Sign column background highlight fix
-highlight clear signcolumn
-autocmd ColorScheme * highlight! link SignColumn LineNr
+highlight clear SignColumn
 
 " > https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
 
@@ -176,3 +208,9 @@ autocmd ColorScheme * highlight! link SignColumn LineNr
 " nnoremap <silent> <leader><leader>gm :Gmove<Space>
 " nnoremap <silent> <leader><leader>gdps :Dispatch! git push<CR>
 " nnoremap <silent> <leader><leader>gdpl :Dispatch! git pull<CR>
+
+
+
+" # Class Viewer
+
+nnoremap <silent> <F8> :TagbarToggle<CR>

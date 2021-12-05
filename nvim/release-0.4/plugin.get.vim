@@ -21,7 +21,7 @@ Plug 'mhinz/vim-startify'
 " # Auto Pairs
 Plug 'jiangmiao/auto-pairs'
 
-" # Change Surround
+" # Edit Pairs
 Plug 'tpope/vim-surround'
 
 " # Comments
@@ -30,10 +30,10 @@ Plug 'tpope/vim-commentary'
 " # WakaTime Statistic
 Plug 'wakatime/vim-wakatime'
 
-" # Color Themes
+" # Color Theme
 Plug 'altercation/vim-colors-solarized'
 
-" # Icons Themes
+" # Icon Themes
 Plug 'ryanoasis/vim-devicons'
 
 " # Status Bar Line
@@ -52,5 +52,8 @@ Plug 'junegunn/fzf.vim'
 " # Version Control System
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
+" # Class Viewer
+Plug 'preservim/tagbar'
 
 call plug#end()

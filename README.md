@@ -7,6 +7,9 @@ Minimalist code enviroment for UNIX-like systems.
 - `/bash` - contains shell scripts, aliases etc. [Read more](bash/README.md).
 - `/nvim` - contains [Neovim](https://neovim.io/) settings, plugins, keybindings, fonts etc. [Read more](nvim/README.md).
 - `/font` - contains patched fonts (with embedded icon pack). [Read more](fonts/README.md).
+- `/tmux` - contains Tmux (terminal multiplexer) settings, keybindings etc. [Read more](tmux/README.md).
+- `/fish` - `f`riendly `i`nteractive `sh`ell settings, plugins etc. [Read more](fish/README.md).
+- `/docs` - common documentations, guides etc. [Read more](docs/).
 
 ## Glossary
 
