@@ -25,7 +25,7 @@ set iskeyword+=-
 " ? Stop new line to be continuation of comment
 set formatoptions-=cro
 
-" ? Always show the signcolumn, otherwise it would shift the text each time diagnostics appear or become resolved (disable, because of vim-gitgutter problems)
+" ? Always show the SignColumn, otherwise it would shift the text each time diagnostics appear or become resolved (disable, because of vim-gitgutter problems)
 " if has("nvim-0.5.0") || has("patch-8.1.1564")
 "   set signcolumn=number
 " else
@@ -172,16 +172,23 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ? CoC extension list
 let g:coc_global_extensions = [
-  \'coc-css',
-  \'coc-eslint',
-  \'coc-html',
-  \'coc-json',
-  \'coc-marketplace',
-  \'coc-prettier',
-  \'coc-toml',
-  \'coc-tsserver',
-  \'coc-yaml',
-\]
+    \ 'coc-css',
+    \ 'coc-eslint',
+    \ 'coc-html',
+    \ 'coc-jest',
+    \ 'coc-json',
+    \ 'coc-marketplace',
+    \ 'coc-prettier',
+    \ 'coc-sql',
+    \ 'coc-styled-components',
+    \ 'coc-svg',
+    \ 'coc-toml',
+    \ 'coc-tslint',
+    \ 'coc-tsserver',
+    \ 'coc-webpack',
+    \ 'coc-xml',
+    \ 'coc-yaml',
+\ ]
 
 " ? Run Prettier or ESLint if its has been installed in node_modules
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
@@ -250,4 +257,4 @@ let g:go_def_mapping_enabled = 0
 " # Language Support: .editorconfig
 
 " > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+

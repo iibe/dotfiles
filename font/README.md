@@ -2,9 +2,14 @@
 
 ## How to use
 
-1. Copy font files from `./powerline/Hack` (or `./nerdfonts/Hack`) folder and paste it to `~/.local/share/fonts` directory.
+1. Copy font files from `./font_name` folder and paste it to `~/.local/share/fonts` directory.
 
-> Note: If you prefer another font, it can be downloaded from [Powerline][1] (or [Nerd Fonts][2]) Github repository.
+> Another fonts are available in [NerdFont repository][1] (or use [website][5] instead) and [Powerline repository][2].
+>
+> Use [DownGit][3] to download specific font from Github repository (e.g. [https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono][4]).
 
-[1]: https://github.com/powerline/fonts
-[2]: https://github.com/ryanoasis/nerd-fonts
+[1]: https://github.com/ryanoasis/nerd-fonts
+[2]: https://github.com/powerline/fonts
+[3]: https://minhaskamal.github.io/DownGit/#/home
+[4]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono
+[5]: https://www.nerdfonts.com/font-downloads

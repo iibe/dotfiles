@@ -12,7 +12,7 @@ Ubuntu-based OS setup guide.
   - [RAM performance optimization](#ram-performance-optimization)
   - [Expand battery life time](#expand-battery-life-time)
   - [Save your eyes](#save-your-eyes)
-- [Code Enviroment](#code-enviroment)
+- [Code Environment](#code-environment)
   - [Command line shell](#command-line-shell)
   - [Terminal multiplexer](#terminal-multiplexer)
   - [Text editor](#text-editor)
@@ -83,7 +83,7 @@ sudo apt-get update
 sudo apt-get install fluxgui
 ```
 
-## Code Enviroment
+## Code Environment
 
 Fish + Tmux + Neovim
 
@@ -114,7 +114,7 @@ sudo apt-get install neovim
 
 ## Code Utilities
 
-Programming languages, package managers, VCS's etc.
+Programming languages, package managers, VCS's, etc.
 
 ### Version control system
 
@@ -179,7 +179,7 @@ sudo apt-get update
 sudo apt-get install deluge
 ```
 
-### Spotify Free AdKiller 
+### Spotify Free AdKiller
 
 ```shell
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -

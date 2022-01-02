@@ -13,6 +13,28 @@ set background=dark
 
 " > https://github.com/mhinz/vim-startify/wiki/Example-configurations
 let g:startify_custom_header = []
+let g:startify_padding_left = 6
+let g:startify_files_number = 5
+
+let g:startify_lists = [
+    \ { 'type': 'files', 'header': ['  Recently used'] },
+    \ { 'type': 'dir', 'header': ['  Last changed in ' . getcwd()] },
+    \ { 'type': 'sessions', 'header': ['  Sessions'] },
+    \ { 'type': 'bookmarks', 'header': ['  Bookmarks'] },
+    \ { 'type': 'commands', 'header': ['  Commands'] },
+\ ]
+
+let g:startify_bookmarks = [
+    \ { 'd': '~/Desktop' },
+    \ { 'v': '~/.config/nvim' },
+\ ]
+
+let g:startify_commands = [
+    \ { 'c': ['Check health', ':checkhealth'] },
+    \ { 'm': ['Marketplace', ':CocList marketplace'] },
+    \ { 'h': ['Neovim help', ':help'] },
+    \ { 's': ['Plugin status', ':PlugStatus'] },
+\ ]
 
 
 
@@ -45,7 +67,7 @@ endif
 
 let g:airline_symbols.linenr = ' Y:'
 let g:airline_symbols.maxlinenr = ' '
-let g:airline_symbols.colnr = ' X:'
+let g:airline_symbols.colnr = 'X:'
 let g:airline_symbols.whitespace = 'WS:'
 
 call airline#parts#define_accent('linenr', 'none')
@@ -87,21 +109,19 @@ let g:NERDTreeGitStatusConcealBrackets = 1
 
 " ? Set custom signs for different Git statuses
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ 'Untracked' :'∪',
-    \ 'Modified'  :'≈',
-    \ 'Staged'    :'+',
-    \ 'Renamed'   :'➜',
-    \ 'Deleted'   :'⨉',
-    \ 'Unmerged'  :'∩',
+    \ 'Untracked' :'U',
+    \ 'Modified'  :'M',
+    \ 'Staged'    :'S',
+    \ 'Renamed'   :'R',
+    \ 'Deleted'   :'D',
+    \ 'Unmerged'  :'u',
     \ 'Unknown'   :'?',
-    \ 'Ignored'   :'⦸',
-    \ 'Clean'     :'☐',
-    \ 'Dirty'     :'☒',
+    \ 'Ignored'   :'i',
+    \ 'Clean'     :'c',
+    \ 'Dirty'     :'d',
 \ }
 
 " > https://github.com/tiagofumo/vim-nerdtree-syntax-highlight#installation
-
-" ? Highlight full name (not only icons)
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -141,8 +161,8 @@ let g:fzf_action = {
 " ? Popup window layout (90% of screen size, centered)
 let g:fzf_layout = {
     \ 'window': {
-        \ 'width': 0.90,
-        \ 'height': 0.90,
+        \ 'width': 0.95,
+        \ 'height': 0.95,
         \ 'xoffset': 0.5,
         \ 'yoffset': 0.5,
         \ 'highlight': 'Todo',
@@ -150,7 +170,7 @@ let g:fzf_layout = {
 \ }
 
 " ? Preview window layout
-let g:fzf_preview_window = ['right:75%', 'ctrl-/']
+let g:fzf_preview_window = ['down:75%', 'ctrl-/']
 
 " ? Popup window color scheme
 let g:fzf_colors = {
@@ -166,7 +186,7 @@ let g:fzf_colors = {
     \ 'pointer': ['fg', 'Exception'],
     \ 'marker': ['fg', 'Keyword'],
     \ 'spinner': ['fg', 'Label'],
-    \ 'header': ['fg', 'Comment']
+    \ 'header': ['fg', 'Comment'],
 \ }
 
 
@@ -176,27 +196,22 @@ let g:fzf_colors = {
 " > https://github.com/airblade/vim-gitgutter#customisation
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
+" let g:gitgutter_set_sign_backgrounds = 0
 
-" ? Custom signcolumn colors
-highlight GitGutterAdd    guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+" ? Fix sign column background highlight
+highlight clear signcolumn
 
 " ? Custom signcolumn icons
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_modified_removed = '≃'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '^'
-let g:gitgutter_sign_removed_above_and_below = '↕'
-
-" ? Sign column background highlight fix
-highlight clear SignColumn
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '~~'
+let g:gitgutter_sign_modified_removed = '~-'
+let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_removed_first_line = '^^'
+let g:gitgutter_sign_removed_above_and_below = '↑↓'
 
 " > https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
-
-" nnoremap <silent> <leader><leader>ga :Git add<CR>
-" nnoremap <silent> <leader><leader>gc :Git commit<CR>
+" nnoremap <silent> <leader><leader>gad :Git add .<CR>
+" nnoremap <silent> <leader><leader>gct :Git commit<CR>
 " nnoremap <silent> <leader><leader>gst :Git status<CR>
 " nnoremap <silent> <leader><leader>gbr :Git branch<Space>
 " nnoremap <silent> <leader><leader>gco :Git checkout<Space>

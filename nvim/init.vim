@@ -40,7 +40,7 @@ function! s:Import(file) abort
   execute 'source' . ' ' . l:path
 endfunction
 
-" Common: initialize system requsites
+" Common: initialize system requisites
 call s:Initialize()
 
 " Common: import vim scripts

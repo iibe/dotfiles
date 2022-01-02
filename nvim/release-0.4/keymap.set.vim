@@ -44,13 +44,13 @@ nnoremap <silent> <C-q> :x<CR>
 nnoremap <silent> <C-e> :Explore<CR>
 
 " Filesystem: create new file
-nnoremap <C-S-n> :!touch<Space>
+nnoremap <C-N> :!touch<Space>
 
 " Filesystem: create new directory
-nnoremap <C-S-d> :!mkdir<Space>
+nnoremap <C-D> :!mkdir<Space>
 
 " Filesystem: move (rename) file
-nnoremap <C-S-m> :!mv<Space>%<Space>
+nnoremap <C-M> :!mv<Space>%<Space>
 
 
 

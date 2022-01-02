@@ -1,6 +1,12 @@
 " ? Encoding
 set encoding=utf-8
 
+" ? Show sing column
+set signcolumn=yes
+
+" ? End-of-butter symbol
+set fillchars=eob:\$
+
 " ? Syntax highlighting
 syntax enable
 
@@ -33,3 +39,10 @@ set autowrite noswapfile
 
 " ? Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
+
+" ? Russian keyboard layout
+" set keymap=russian-jcukenwin
+" set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+" ? Transparent backgound
+" autocmd ColorScheme * highlight Normal ctermbg=none
