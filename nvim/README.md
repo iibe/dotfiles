@@ -30,11 +30,11 @@ There is 2 root files:
 
 The configuration consists of 7 logically separated files:
 
-1. `cmd.vim` - native Neovim configuration commands.
-1. `gui.vim` - native Neovim configuration commands for GUI client.
-1. `lsp.vim` - LSP configuration commands.
-1. `indent.set.vim` - custom indentations for programming languages.
-1. `keymap.set.vim` - custom key bindings.
+1. `cli.vim` - native Neovim settings for CLI.
+1. `gui.vim` - native Neovim settings for GUI.
+1. `lsp.vim` - LSP settings.
+1. `editor.vim` - settings within editor window.
+1. `keymap.vim` - custom keyboard Keys.
 1. `plugin.get.vim` - list of installed plugins.
 1. `plugin.set.vim` - plugins configuration.
 
@@ -42,81 +42,96 @@ The configuration consists of 7 logically separated files:
 
 I personally like to use `;` as default leader key. But you can set up anything you want (e.g `\` or `,` are also a good choice).
 
-| Shortcut | Action description                        |
-| :------- | :---------------------------------------- |
-| `;;`     | Exit from **insert mode** (same as `Esc`) |
-| `>`      | Indent to right (same as `>>`)            |
-| `<`      | Indent to left (same as `<<`)             |
+| Key  | Mode   | Command            | Description                    |
+| :--- | :----- | :----------------- | :----------------------------- |
+| `;;` | INSERT | `ESC`              | Exit from **insert mode**      |
+| `j`  | NORMAL | `v:count ? j : gj` | Improved navigation            |
+| `k`  | NORMAL | `v:count ? k : gk` | Improved navigation            |
+| `>`  | NORMAL | `>>`               | Tab to right                   |
+| `<`  | NORMAL | `<<`               | Tab to left                    |
+| `Y`  | NORMAL | `y$`               | Copy to end of line            |
+| `gh` | NORMAL | `0`                | Go to the line start           |
+| `gl` | NORMAL | `$`                | Go to the line end             |
+| `gj` | NORMAL | `L`                | Go to the bottom of the window |
+| `gk` | NORMAL | `H`                | Go to the top of the window    |
+| `gm` | NORMAL | `M`                | Go to the middle of the window |
 
-| Shortcut   | Action description                                 |
-| :--------- | :------------------------------------------------- |
-| `Ctrl + h` | Move to the left window (compatible with `tmux`)   |
-| `Ctrl + j` | Move to the bottom window (compatible with `tmux`) |
-| `Ctrl + k` | Move to the top window (compatible with `tmux`)    |
-| `Ctrl + l` | Move to the right window (compatible with `tmux`)  |
-| `;wh`      | Split active window horizontally                   |
-| `;wv`      | Split active window vertically                     |
-| `;wo`      | Keep active window only                            |
-| `;wc`      | Close window                                       |
-| `+`        | Increase window width                              |
-| `-`        | Decrease window width                              |
+| Key   | Mode   | Action                 | Description        |
+| :---- | :----- | :--------------------- | :----------------- |
+| `;ce` | NORMAL | `:edit $MYVIMRC<CR>`   | Edit configuration |
+| `;cs` | NORMAL | `:source $MYVIMRC<CR>` | Save configuration |
 
-| Shortcut  | Action description                                        |
-| :-------- | :-------------------------------------------------------- |
-| `Alt + h` | Go to previous buffer                                     |
-| `Alt + l` | Go to next buffer                                         |
-| `;bb`     | Switch between last two buffers                           |
-| `;bc`     | Close buffer                                              |
-| `;bk`     | Kill buffer                                               |
-| `;be`     | Explore buffers                                           |
-| `;bg`     | Go to buffer (type a number of buffer and press ENTER)    |
-| `;[1-9]`  | Go to buffer №[1-9] (to see a list of buffers type `;be`) |
-| `;0`      | Go to last used buffer                                    |
+| Key            | Mode   | Action           | Description                     |
+| :------------- | :----- | :--------------- | :------------------------------ |
+| `Ctrl+s`       | NORMAL | `:w<CR>`         | Save file                       |
+| `Ctrl+q`       | NORMAL | `:x<CR>`         | Save file and quit              |
+| `Ctrl+e`       | NORMAL | `:Explore<CR>`   | File list of the current folder |
+| `Ctrl+Shift+f` | NORMAL | `:!touch<Space>` | Create new file                 |
+| `Ctrl+Shift+d` | NORMAL | `:!mkdir<Space>` | Create new directory            |
 
-| Shortcut     | Action description                         |
-| :----------- | :----------------------------------------- |
-| `Ctrl+Space` | Trigger autocompletion                     |
-| `Shift+k`    | Show documentation (same as `K`)           |
-| `[g`         | Go to previos diagnostic                   |
-| `]g`         | Go to next diagnostic                      |
-| `gd`         | Go to definition                           |
-| `gt`         | Go to type definition                      |
-| `gi`         | Go to implementation                       |
-| `gr`         | Go to reference                            |
-| `;;r`        | Rename symbol                              |
-| `;;fs`       | Format selected code                       |
-| `;;as`       | Apply code action to selected region       |
-| `;;a`        | Apply code action to the current buffer    |
-| `;;af`       | Apply problem auto fix on the current line |
+| Key      | Mode   | Action                    | Description                                  |
+| :------- | :----- | :------------------------ | :------------------------------------------- |
+| `Ctrl+h` | NORMAL |                           | Go to left window (compatible with `tmux`)   |
+| `Ctrl+j` | NORMAL |                           | Go to bottom window (compatible with `tmux`) |
+| `Ctrl+k` | NORMAL |                           | Go to top window (compatible with `tmux`)    |
+| `Ctrl+l` | NORMAL |                           | Go to right window (compatible with `tmux`)  |
+| `;wh`    | NORMAL | `:new<CR>`                | Split window horizontally                    |
+| `;wv`    | NORMAL | `:vnew<CR>`               | Split window vertically                      |
+| `;wo`    | NORMAL | `<C-w>o<CR>`              | Keep active window only                      |
+| `;wc`    | NORMAL | `<C-w>c<CR>`              | Close current window                         |
+| `;wih`   | NORMAL | `:vertical resize +3<CR>` | Increase window size horizontally            |
+| `;wdh`   | NORMAL | `:vertical resize -3<CR>` | Decrease window size horizontally            |
+| `;wiv`   | NORMAL | `:resize +3<CR>`          | Increase window size vertically              |
+| `;wdv`   | NORMAL | `:resize -3<CR>`          | Decrease window size vertically              |
+
+| Key      | Mode   | Action               | Description                                               |
+| :------- | :----- | :------------------- | :-------------------------------------------------------- |
+| `Alt+h`  | NORMAL | `:bp<CR>`            | Go to previous buffer                                     |
+| `Alt+l`  | NORMAL | `:bn<CR>`            | Go to next buffer                                         |
+| `;bb`    | NORMAL | `<C-^>`              | Switch between last two buffers                           |
+| `;bc`    | NORMAL | `:bd<CR>`            | Close buffer                                              |
+| `;bk`    | NORMAL | `:bd!<CR>`           | Kill buffer                                               |
+| `;be`    | NORMAL | `:ls<CR>`            | Explore buffers                                           |
+| `;bg`    | NORMAL | `:ls<CR>:buffer<CR>` | Go to buffer (type a number of buffer and press ENTER)    |
+| `;[1-9]` | NORMAL | `:[1-9]b<CR>`        | Go to buffer №[1-9] (to see a list of buffers type `;be`) |
+| `;0`     | NORMAL | `:e#`                | Go to last used buffer                                    |
+
+| Key    | Mode   | Action                           | Description             |
+| :----- | :----- | :------------------------------- | :---------------------- |
+| `;tsh` | NORMAL | `:set hlsearch! hlsearch?<CR>`   | Toggle search highlight |
+| `;tln` | NORMAL | `:set number! number?<CR>`       | Toggle line number      |
+| `;tww` | NORMAL | `:set wrap! wrap?<CR>`           | Toggle text wrap        |
+| `;tcm` | NORMAL | `:call <SID>toggle_background()` | Toggle color mode       |
+
+| Key          | Mode   | Action                            | Description                                |
+| :----------- | :----- | :-------------------------------- | :----------------------------------------- |
+| `Ctrl+Space` | INSERT | `coc#refresh()`                   | Trigger autocompletion                     |
+| `[g`         | NORMAL | `<Plug>(coc-diagnostic-prev)`     | Go to previos diagnostic                   |
+| `]g`         | NORMAL | `<Plug>(coc-diagnostic-next)`     | Go to next diagnostic                      |
+| `gd`         | NORMAL | `<Plug>(coc-definition)`          | Go to definition                           |
+| `gt`         | NORMAL | `<Plug>(coc-type-definition)`     | Go to type definition                      |
+| `gi`         | NORMAL | `<Plug>(coc-implementation)`      | Go to implementation                       |
+| `gr`         | NORMAL | `<Plug>(coc-references)`          | Go to reference                            |
+| `Shift+k`    | NORMAL | `:call<SID>show_documentation()`  | Show documentation (same as `K`)           |
+| `;;rn`       | NORMAL | `<Plug>(coc-rename)`              | Rename symbol                              |
+| `;;fs`       | NORMAL | `<Plug>(coc-format-selected)`     | Format selected code                       |
+| `;;as`       | NORMAL | `<Plug>(coc-codeaction-selected)` | Apply code action to selected region       |
+| `;;a`        | NORMAL | `<Plug>(coc-codeaction)`          | Apply code action to the current buffer    |
+| `;;fc`       | NORMAL | `<Plug>(coc-fix-current)`         | Apply problem auto fix on the current line |
 
 <!--
-| `;cld`       | :CocList diagnostics                       |
-| `;cle`       | :CocList extensions                        |
-| `;clm`       | :CocList marketplace                       |
-| `;clc`       | :CocList commands                          |
-| `;clo`       | :CocList outline                           |
-| `;cls`       | :CocList -I symbols                        |
-| `;clj`       | :CocNext                                   |
-| `;clk`       | :CocPrev                                   |
-| `;clr`       | :CocListResume                             |
- -->
-
-| Shortcut   | Action Description  |
-| :--------- | :------------------ |
-| `Ctrl + s` | Save file           |
-| `Ctrl + q` | Save file and quit  |
-| `Ctrl + e` | Explore file folder |
-
-| Shortcut | Action Description      |
-| :------- | :---------------------- |
-| `;tsh`   | Toggle search highlight |
-| `;tln`   | Toggle line number      |
-| `;tww`   | Toggle text wrap        |
-
-| Shortcut | Action description |
-| :------- | :----------------- |
-| `;ce`    | Edit configuration |
-| `;cs`    | Save configuration |
+| Key    | Mode   | Action                 | Description |
+| :----- | :----- | :--------------------- | :---------- |
+| `;cld` | NORMAL | `:CocList diagnostics` |             |
+| `;cle` | NORMAL | `:CocList extensions`  |             |
+| `;clm` | NORMAL | `:CocList marketplace` |             |
+| `;clc` | NORMAL | `:CocList commands`    |             |
+| `;clo` | NORMAL | `:CocList outline`     |             |
+| `;cls` | NORMAL | `:CocList -I symbols`  |             |
+| `;clj` | NORMAL | `:CocNext`             |             |
+| `;clk` | NORMAL | `:CocPrev`             |             |
+| `;clr` | NORMAL | `:CocListResume`       |             |
+-->
 
 <!-- Links -->
 

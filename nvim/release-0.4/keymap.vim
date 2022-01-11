@@ -1,7 +1,7 @@
 " Common: leader key
 let g:mapleader=';'
 
-" Common: avoid escape key
+" Common: mode escape alternatives
 inoremap <leader><leader> <ESC>
 " inoremap jj <ESC>
 " inoremap kk <ESC>
@@ -9,21 +9,29 @@ inoremap <leader><leader> <ESC>
 " inoremap kj <ESC>
 
 " Common: simple multiline nagivation
-nnoremap j gj
-nnoremap k gk
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " Common: no repeat indentation key
 nnoremap > >>
 nnoremap < <<
 
-" Common: yank until EOL
+" Common: yank until end-of-line
 nnoremap Y y$
 
-" Common: simple start/end axis navigation
-nnoremap gh 0
-nnoremap gl $
+" Common: simple x/y axis navigation
+nnoremap gh ^
+nnoremap gl g_
 nnoremap gj L
 nnoremap gk H
+nnoremap gm M
+
+" Common: disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 
 
 " Config: edit configuration
@@ -44,13 +52,10 @@ nnoremap <silent> <C-q> :x<CR>
 nnoremap <silent> <C-e> :Explore<CR>
 
 " Filesystem: create new file
-nnoremap <C-N> :!touch<Space>
+nnoremap <C-F> :!touch<Space>
 
 " Filesystem: create new directory
 nnoremap <C-D> :!mkdir<Space>
-
-" Filesystem: move (rename) file
-nnoremap <C-M> :!mv<Space>%<Space>
 
 
 
@@ -64,9 +69,11 @@ nnoremap <silent> <leader>wc <C-w>c<CR>
 " Window: keep active window only
 nnoremap <silent> <leader>wo <C-w>o<CR>
 
-" Window: resize window
-nnoremap <silent> + :vertical resize +3<CR>
-nnoremap <silent> - :vertical resize -3<CR>
+" Window: resize window width/height
+nnoremap <leader>wih :vertical resize +3<CR>
+nnoremap <leader>wdh :vertical resize -3<CR>
+nnoremap <leader>wiv :resize +3<CR>
+nnoremap <leader>wdv :resize -3<CR>
 
 " Window: move between windows (`vim-tmux-navigator` already got it)
 " nnoremap <C-h> <C-w>h
@@ -131,7 +138,7 @@ function! s:toggle_background()
     endif
 
     try
-        execute "AirlineRefresh"
+        execute 'AirlineRefresh'
     catch
     endtry
 endfunction

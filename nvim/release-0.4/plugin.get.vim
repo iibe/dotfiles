@@ -1,6 +1,6 @@
 call plug#begin(g:plugged)
 
-" # Seamless Neovim-Tmux Navigation
+" # Seamless Vim-Tmux Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
 " # Tmux Status Line
@@ -30,8 +30,9 @@ Plug 'tpope/vim-commentary'
 " # WakaTime Statistic
 Plug 'wakatime/vim-wakatime'
 
-" # Color Theme
+" # Color Themes
 Plug 'altercation/vim-colors-solarized'
+Plug 'rafi/awesome-vim-colorschemes'
 
 " # Icon Themes
 Plug 'ryanoasis/vim-devicons'
@@ -48,6 +49,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " # Fuzzy Find Files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" # Quick File Navigation
+Plug 'easymotion/vim-easymotion'
 
 " # Version Control System
 Plug 'tpope/vim-fugitive'

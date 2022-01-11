@@ -1,34 +1,50 @@
 {
-  // NOTE: Language Server Protocol
-  "suggest.noselect": true,
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.formatOnType": true,
-  "tsserver.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "graphql",
-    "markdown",
-    "json"
-  ],
-  "languageserver": {
-    "golang": {
-      "command": "~/go/bin/gopls",
-      "rootPatterns": ["go.mod", "./vim", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "trace.server": "verbose",
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
-  },
+    // NOTE: Language Server Protocol
+    "suggest.noselect": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "html",
+        "graphql",
+        "markdown",
+        "python",
+        "typescript",
+        "typescriptreact",
+        "yaml"
+    ],
+    "languageserver": {
+        "golang": {
+            "command": "~/go/bin/gopls",
+            "rootPatterns": ["go.mod", "./vim", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
 
-  // NOTE: ESLint and Prettier
-  "eslint.autoFixOnSave": true,
-  "prettier.disableSuccessMessage": true,
-  "prettier.requireConfig": true
+            }
+        }
+    },
+
+    // "ccls": {
+    //    "command": "ccls",
+    //    "rootPatterns": [".ccls", "compile_commands.json", "./vim", ".git/", ".hg/"],
+    //    "filetypes": ["c", "cpp", "objc", "objcpp"],
+    //    "initializationOptions": {
+    //        "cache": {
+    //            "directory": "/tmp/ccls"
+    //        }
+    //    }
+    //}
+
+    // NOTE: Prettier and ESLint
+    "prettier.disableSuccessMessage": true,
+    "prettier.requireConfig": true,
+    "eslint.run": "onSave",
+    "eslint.autoFixOnSave": true,
+    // NOTE: Python3
+    "python.pythonPath": "/usr/bin/python3",
+    "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true
 }

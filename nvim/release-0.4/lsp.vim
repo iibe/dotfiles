@@ -1,4 +1,4 @@
-" # Language Server Protocol: VSCode
+" # Language Server Protocol: CoC
 
 " > https://github.com/neoclide/coc.nvim#example-vim-configuration
 set encoding=utf-8
@@ -25,14 +25,14 @@ set iskeyword+=-
 " ? Stop new line to be continuation of comment
 set formatoptions-=cro
 
-" ? Always show the SignColumn, otherwise it would shift the text each time diagnostics appear or become resolved (disable, because of vim-gitgutter problems)
-" if has("nvim-0.5.0") || has("patch-8.1.1564")
-"   set signcolumn=number
-" else
-"   set signcolumn=yes
-" endif
+" ? Always show the sign column, otherwise it would shift the text each time diagnostics appear or become resolved. Disabled due to problems with vim-gitgutter.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
-" ? Use TAB for trigger completion with characters ahead and navigate
+" ? Use Tab (or Shift+Tab) for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <TAB> pumvisible()
   \ ? "\<C-n>"
   \ : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
@@ -55,7 +55,7 @@ endif
 "   \ ? coc#_select_confirm()
 "   \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" ? Use `[g` and `]g` to navigate diagnostics. Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+" ? Use `[g` and `]g` to navigate diagnostics. Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -82,7 +82,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " ? Rename symbol
-nmap <leader><leader>r <Plug>(coc-rename)
+nmap <leader><leader>rn <Plug>(coc-rename)
 
 " ? Format selected code
 xmap <leader><leader>fs <Plug>(coc-format-selected)
@@ -90,13 +90,13 @@ nmap <leader><leader>fs <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
-  " Note: Setup formatexpr specified filetype(s)
+  " Note: Setup formatexpr for specific filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Note: Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" ? Apply code action to the selected region. E.g. `;;asap` (coc action selected around paragraph) for current paragraph
+" ? Apply code action to the selected region. E.g. `;;asap` (CoC action selected around paragraph) for current paragraph.
 xmap <leader><leader>as <Plug>(coc-codeaction-selected)
 nmap <leader><leader>as <Plug>(coc-codeaction-selected)
 
@@ -104,18 +104,16 @@ nmap <leader><leader>as <Plug>(coc-codeaction-selected)
 nmap <leader><leader>a <Plug>(coc-codeaction)
 
 " ? Apply auto fix to problem on the current line
-nmap <leader><leader>af <Plug>(coc-fix-current)
+nmap <leader><leader>fc <Plug>(coc-fix-current)
 
 " ? Map function and class text objects (requires `textDocument.documentSymbol` support from the language server)
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
-
 xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 
 xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
-
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
@@ -144,8 +142,8 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " ? Use <C-s> for selections ranges (requires `textDocument/selectionRange` support of language server)
-" nmap <silent> <C-s> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
+nmap <silent> <leader><leader>rs <Plug>(coc-range-select)
+xmap <silent> <leader><leader>rs <Plug>(coc-range-select)
 
 " ? Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -156,47 +154,51 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 " ? Add `:OR` command for organize imports of the current buffer
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
-" ? Add Vim (Neovim) native statusline support. Note: Please see `:h coc-status` for integrations with external plugins that provide custom statusline (e.g. lightline.vim or vim-airline)
+" ? Add Vim (Neovim) native statusline support. Note: Please see `:help coc-status` for integrations with external plugins that provide custom statusline (e.g. lightline.vim or vim-airline).
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ? Mappings for `:CocList`
-" nnoremap <silent> <leader>cld :CocList diagnostics<CR>
-" nnoremap <silent> <leader>cle :CocList extensions<CR>
-" nnoremap <silent> <leader>clm :CocList marketplace<CR>
-" nnoremap <silent> <leader>clc :CocList commands<CR>
-" nnoremap <silent> <leader>clo :CocList outline<CR>
-" nnoremap <silent> <leader>cls :CocList -I symbols<CR>
-" nnoremap <silent> <leader>clj :CocNext<CR>
-" nnoremap <silent> <leader>clk :CocPrev<CR>
-" nnoremap <silent> <leader>clr :CocListResume<CR>
+nnoremap <silent> <leader><leader>cld :CocList diagnostics<CR>
+nnoremap <silent> <leader><leader>cle :CocList extensions<CR>
+nnoremap <silent> <leader><leader>clm :CocList marketplace<CR>
+nnoremap <silent> <leader><leader>clc :CocList commands<CR>
+nnoremap <silent> <leader><leader>clo :CocList outline<CR>
+nnoremap <silent> <leader><leader>cls :CocList -I symbols<CR>
+nnoremap <silent> <leader><leader>cll :CocNext<CR>
+nnoremap <silent> <leader><leader>clh :CocPrev<CR>
+nnoremap <silent> <leader><leader>clr :CocListResume<CR>
 
 " ? CoC extension list
 let g:coc_global_extensions = [
-    \ 'coc-css',
-    \ 'coc-eslint',
-    \ 'coc-html',
-    \ 'coc-jest',
-    \ 'coc-json',
-    \ 'coc-marketplace',
-    \ 'coc-prettier',
-    \ 'coc-sql',
-    \ 'coc-styled-components',
-    \ 'coc-svg',
-    \ 'coc-toml',
-    \ 'coc-tslint',
-    \ 'coc-tsserver',
-    \ 'coc-webpack',
-    \ 'coc-xml',
-    \ 'coc-yaml',
+  \ 'coc-css',
+  \ 'coc-docker',
+  \ 'coc-emmet',
+  \ 'coc-html',
+  \ 'coc-jest',
+  \ 'coc-json',
+  \ 'coc-marketplace',
+  \ 'coc-pyright',
+  \ 'coc-sql',
+  \ 'coc-styled-components',
+  \ 'coc-svg',
+  \ 'coc-toml',
+  \ 'coc-tsserver',
+  \ 'coc-webpack',
+  \ 'coc-xml',
+  \ 'coc-yaml',
 \ ]
 
-" ? Run Prettier or ESLint if its has been installed in node_modules
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+" ? Run Prettier, ESLint (or TSLint) if they're installed in `node_modules` folder
+if isdirectory('./node_modules/prettier') && isdirectory('./.prettierrc')
   let g:coc_global_extensions += ['coc-prettier']
 endif
 
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+if isdirectory('./node_modules/eslint') && isdirectory('./.eslintrc')
   let g:coc_global_extensions += ['coc-eslint']
+endif
+
+if isdirectory('./node_modules/tslint') && isdirectory('./.eslintrc')
+  let g:coc_global_extensions += ['coc-tslint']
 endif
 
 " ? Fix syntax out-of-sync highlighting in large files
@@ -208,7 +210,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 
-" # Language Support: Go
+" # Language Support: Golang
 
 " > https://github.com/golang/tools/blob/master/gopls/doc/vim.md#cocnvim
 let g:go_def_mode='gopls'
@@ -244,17 +246,16 @@ function! s:build_go_files()
   endif
 endfunction
 
-" ? Key bindings for build, run, test etc.
+" ? Key bindings for build, run, test, etc.
 autocmd FileType go nmap <leader>gob :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>gor <Plug>(go-run)
 autocmd FileType go nmap <leader>got <Plug>(go-test)
 
-" ? Disable `:GoDef` shortcut (CoC already got it)
+" ? Disable `:GoDef` shortcut (CoC already have it)
 let g:go_def_mapping_enabled = 0
 
 
 
-" # Language Support: .editorconfig
+" # Config Support: .editorconfig
 
 " > https://github.com/editorconfig/editorconfig-vim#excluded-patterns
-
