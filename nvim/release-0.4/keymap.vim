@@ -1,32 +1,32 @@
-" Common: leader key
+" Keymap: leader key
 let g:mapleader=';'
 
-" Common: mode escape alternatives
+" Keymap: mode escape alternatives
 inoremap <leader><leader> <ESC>
 " inoremap jj <ESC>
 " inoremap kk <ESC>
 " inoremap jk <ESC>
 " inoremap kj <ESC>
 
-" Common: simple multiline nagivation
+" Keymap: simple multiline nagivation
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 
-" Common: no repeat indentation key
+" Keymap: no repeat indentation key
 nnoremap > >>
 nnoremap < <<
 
-" Common: yank until end-of-line
+" Keymap: yank until end-of-line
 nnoremap Y y$
 
-" Common: simple x/y axis navigation
+" Keymap: simple x/y axis navigation
 nnoremap gh ^
 nnoremap gl g_
 nnoremap gj L
 nnoremap gk H
 nnoremap gm M
 
-" Common: disable arrow keys
+" Keymap: disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -34,11 +34,11 @@ noremap <Right> <NOP>
 
 
 
-" Config: edit configuration
-nnoremap <silent> <leader>ce :edit $MYVIMRC<CR>
+" Neovim: edit configuration
+nnoremap <silent> <leader>ve :edit $MYVIMRC<CR>
 
-" Config: save configuration
-nnoremap <silent> <leader>cs :source $MYVIMRC<CR>
+" Neovim: save configuration
+nnoremap <silent> <leader>vs :source $MYVIMRC<CR>
 
 
 

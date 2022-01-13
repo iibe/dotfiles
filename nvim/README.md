@@ -47,19 +47,19 @@ I personally like to use `;` as default leader key. But you can set up anything 
 | `;;` | INSERT | `ESC`              | Exit from **insert mode**      |
 | `j`  | NORMAL | `v:count ? j : gj` | Improved navigation            |
 | `k`  | NORMAL | `v:count ? k : gk` | Improved navigation            |
-| `>`  | NORMAL | `>>`               | Tab to right                   |
-| `<`  | NORMAL | `<<`               | Tab to left                    |
-| `Y`  | NORMAL | `y$`               | Copy to end of line            |
-| `gh` | NORMAL | `0`                | Go to the line start           |
-| `gl` | NORMAL | `$`                | Go to the line end             |
+| `>`  | NORMAL | `>>`               | Improved tab                   |
+| `<`  | NORMAL | `<<`               | Improved tab                   |
+| `Y`  | NORMAL | `y$`               | **y**ank until the end of line |
+| `gh` | NORMAL | `^`                | Go to the first row symbol     |
+| `gl` | NORMAL | `g_`               | Go to the last row symbol      |
 | `gj` | NORMAL | `L`                | Go to the bottom of the window |
 | `gk` | NORMAL | `H`                | Go to the top of the window    |
 | `gm` | NORMAL | `M`                | Go to the middle of the window |
 
 | Key   | Mode   | Action                 | Description        |
 | :---- | :----- | :--------------------- | :----------------- |
-| `;ce` | NORMAL | `:edit $MYVIMRC<CR>`   | Edit configuration |
-| `;cs` | NORMAL | `:source $MYVIMRC<CR>` | Save configuration |
+| `;ve` | NORMAL | `:edit $MYVIMRC<CR>`   | Edit configuration |
+| `;vs` | NORMAL | `:source $MYVIMRC<CR>` | Save configuration |
 
 | Key            | Mode   | Action           | Description                     |
 | :------------- | :----- | :--------------- | :------------------------------ |
@@ -103,35 +103,34 @@ I personally like to use `;` as default leader key. But you can set up anything 
 | `;tww` | NORMAL | `:set wrap! wrap?<CR>`           | Toggle text wrap        |
 | `;tcm` | NORMAL | `:call <SID>toggle_background()` | Toggle color mode       |
 
-| Key          | Mode   | Action                            | Description                                |
-| :----------- | :----- | :-------------------------------- | :----------------------------------------- |
-| `Ctrl+Space` | INSERT | `coc#refresh()`                   | Trigger autocompletion                     |
-| `[g`         | NORMAL | `<Plug>(coc-diagnostic-prev)`     | Go to previos diagnostic                   |
-| `]g`         | NORMAL | `<Plug>(coc-diagnostic-next)`     | Go to next diagnostic                      |
-| `gd`         | NORMAL | `<Plug>(coc-definition)`          | Go to definition                           |
-| `gt`         | NORMAL | `<Plug>(coc-type-definition)`     | Go to type definition                      |
-| `gi`         | NORMAL | `<Plug>(coc-implementation)`      | Go to implementation                       |
-| `gr`         | NORMAL | `<Plug>(coc-references)`          | Go to reference                            |
-| `Shift+k`    | NORMAL | `:call<SID>show_documentation()`  | Show documentation (same as `K`)           |
-| `;;rn`       | NORMAL | `<Plug>(coc-rename)`              | Rename symbol                              |
-| `;;fs`       | NORMAL | `<Plug>(coc-format-selected)`     | Format selected code                       |
-| `;;as`       | NORMAL | `<Plug>(coc-codeaction-selected)` | Apply code action to selected region       |
-| `;;a`        | NORMAL | `<Plug>(coc-codeaction)`          | Apply code action to the current buffer    |
-| `;;fc`       | NORMAL | `<Plug>(coc-fix-current)`         | Apply problem auto fix on the current line |
+| Key          | Mode   | Action                           | Description                      |
+| :----------- | :----- | :------------------------------- | :------------------------------- |
+| `Ctrl+Space` | INSERT | `coc#refresh()`                  | Trigger for autocompletion       |
+| `g[`         | NORMAL | `<Plug>(coc-diagnostic-prev)`    | Go to previos diagnostic         |
+| `g]`         | NORMAL | `<Plug>(coc-diagnostic-next)`    | Go to next diagnostic            |
+| `gd`         | NORMAL | `<Plug>(coc-definition)`         | Go to definition                 |
+| `gt`         | NORMAL | `<Plug>(coc-type-definition)`    | Go to type definition            |
+| `gi`         | NORMAL | `<Plug>(coc-implementation)`     | Go to implementation             |
+| `gr`         | NORMAL | `<Plug>(coc-references)`         | Go to reference                  |
+| `Shift+k`    | NORMAL | `:call<SID>show_documentation()` | Show documentation (same as `K`) |
 
-<!--
-| Key    | Mode   | Action                 | Description |
-| :----- | :----- | :--------------------- | :---------- |
-| `;cld` | NORMAL | `:CocList diagnostics` |             |
-| `;cle` | NORMAL | `:CocList extensions`  |             |
-| `;clm` | NORMAL | `:CocList marketplace` |             |
-| `;clc` | NORMAL | `:CocList commands`    |             |
-| `;clo` | NORMAL | `:CocList outline`     |             |
-| `;cls` | NORMAL | `:CocList -I symbols`  |             |
-| `;clj` | NORMAL | `:CocNext`             |             |
-| `;clk` | NORMAL | `:CocPrev`             |             |
-| `;clr` | NORMAL | `:CocListResume`       |             |
--->
+| Key    | Mode   | Action                            | Description                                |
+| :----- | :----- | :-------------------------------- | :----------------------------------------- |
+| `;grn` | NORMAL | `<Plug>(coc-rename)`              | Rename variable, function, etc.            |
+| `;gfs` | NORMAL | `<Plug>(coc-format-selected)`     | Format selected code                       |
+| `;gas` | NORMAL | `<Plug>(coc-codeaction-selected)` | Apply code action to selected region       |
+| `;ga`  | NORMAL | `<Plug>(coc-codeaction)`          | Apply code action to the current buffer    |
+| `;gfc` | NORMAL | `<Plug>(coc-fix-current)`         | Apply problem auto fix on the current line |
+| `;grs` | NORMAL | `<Plug>(coc-range-select)`        | Apply selection ranges                     |
+| `;cld` | NORMAL | `:CocList diagnostics`            | Show CoC diagnostics                       |
+| `;cle` | NORMAL | `:CocList extensions`             | Show CoC extensions                        |
+| `;clm` | NORMAL | `:CocList marketplace`            | Show CoC marketplace                       |
+| `;clc` | NORMAL | `:CocList commands`               | Show CoC commands                          |
+| `;clo` | NORMAL | `:CocList outline`                | Show CoC outline                           |
+| `;cls` | NORMAL | `:CocList -I symbols`             | Show CoC symbols                           |
+| `;clr` | NORMAL | `:CocListResume`                  | Show CoC list resume                       |
+| `;cgj` | NORMAL | `:CocNext`                        | Show CoC next diagnostic                   |
+| `;cgk` | NORMAL | `:CocPrev`                        | Show CoC prev diagnostic                   |
 
 <!-- Links -->
 

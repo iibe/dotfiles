@@ -220,6 +220,13 @@ nnoremap <silent> <leader>fm :Marks<CR>
 
 
 
+" # Quick Text Navigation
+
+" > https://github.com/easymotion/vim-easymotion#introduction
+map <leader><leader>em <Plug>(easymotion-prefix)
+
+
+
 " # Version Control System
 
 set signcolumn=yes

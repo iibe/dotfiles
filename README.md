@@ -2,6 +2,10 @@
 
 Minimalist code environment for UNIX-like systems.
 
+## Demo
+
+<img src="./DEMO.gif" align="center" />
+
 ## Files and Folders
 
 - `/bash` - contains shell scripts, aliases, etc. [Read more](bash/README.md).

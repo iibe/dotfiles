@@ -50,7 +50,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" # Quick File Navigation
+" # Quick Text Navigation
 Plug 'easymotion/vim-easymotion'
 
 " # Version Control System

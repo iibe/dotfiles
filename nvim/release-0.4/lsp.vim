@@ -43,7 +43,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
-" ? Use `Ctrl+Space` to trigger completion
+" ? Use `Ctrl+Space` for trigger completion
 if has("nvim")
   inoremap <silent><expr> <C-Space> coc#refresh()
 else
@@ -51,13 +51,13 @@ else
 endif
 
 " ? Make <CR> auto-select the first completion item and notify CoC to format on ENTER (might be annoying in some cases)
-" inoremap <silent><expr> <CR> pumvisible()
-"   \ ? coc#_select_confirm()
-"   \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> pumvisible()
+  \ ? coc#_select_confirm()
+  \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" ? Use `[g` and `]g` to navigate diagnostics. Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" ? Use `g[` and `g]` to navigate diagnostics. Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " ? Set go-to navigation keys
 nmap <silent> gd <Plug>(coc-definition)
@@ -82,11 +82,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " ? Rename symbol
-nmap <leader><leader>rn <Plug>(coc-rename)
+nmap <leader>grn <Plug>(coc-rename)
 
 " ? Format selected code
-xmap <leader><leader>fs <Plug>(coc-format-selected)
-nmap <leader><leader>fs <Plug>(coc-format-selected)
+xmap <leader>gfs <Plug>(coc-format-selected)
+nmap <leader>gfs <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -96,15 +96,15 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" ? Apply code action to the selected region. E.g. `;;asap` (CoC action selected around paragraph) for current paragraph.
-xmap <leader><leader>as <Plug>(coc-codeaction-selected)
-nmap <leader><leader>as <Plug>(coc-codeaction-selected)
+" ? Apply code action to the selected region. E.g. `;asap` (CoC action selected around paragraph) for current paragraph.
+xmap <leader>gas <Plug>(coc-codeaction-selected)
+nmap <leader>gas <Plug>(coc-codeaction-selected)
 
 " ? Apply code action to the current buffer
-nmap <leader><leader>a <Plug>(coc-codeaction)
+nmap <leader>ga <Plug>(coc-codeaction)
 
 " ? Apply auto fix to problem on the current line
-nmap <leader><leader>fc <Plug>(coc-fix-current)
+nmap <leader>gfc <Plug>(coc-fix-current)
 
 " ? Map function and class text objects (requires `textDocument.documentSymbol` support from the language server)
 xmap if <Plug>(coc-funcobj-i)
@@ -141,9 +141,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
     \ : "\<C-b>"
 endif
 
-" ? Use <C-s> for selections ranges (requires `textDocument/selectionRange` support of language server)
-nmap <silent> <leader><leader>rs <Plug>(coc-range-select)
-xmap <silent> <leader><leader>rs <Plug>(coc-range-select)
+" ? Use `;grs` for selections ranges (requires `textDocument/selectionRange` support of language server)
+nmap <silent> <leader>grs <Plug>(coc-range-select)
+xmap <silent> <leader>grs <Plug>(coc-range-select)
 
 " ? Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -158,15 +158,16 @@ command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ? Mappings for `:CocList`
-nnoremap <silent> <leader><leader>cld :CocList diagnostics<CR>
-nnoremap <silent> <leader><leader>cle :CocList extensions<CR>
-nnoremap <silent> <leader><leader>clm :CocList marketplace<CR>
-nnoremap <silent> <leader><leader>clc :CocList commands<CR>
-nnoremap <silent> <leader><leader>clo :CocList outline<CR>
-nnoremap <silent> <leader><leader>cls :CocList -I symbols<CR>
-nnoremap <silent> <leader><leader>cll :CocNext<CR>
-nnoremap <silent> <leader><leader>clh :CocPrev<CR>
-nnoremap <silent> <leader><leader>clr :CocListResume<CR>
+nnoremap <silent> <leader>cld :CocList diagnostics<CR>
+nnoremap <silent> <leader>cle :CocList extensions<CR>
+nnoremap <silent> <leader>clm :CocList marketplace<CR>
+nnoremap <silent> <leader>clc :CocList commands<CR>
+nnoremap <silent> <leader>clo :CocList outline<CR>
+nnoremap <silent> <leader>cls :CocList -I symbols<CR>
+nnoremap <silent> <leader>clr :CocListResume<CR>
+
+nnoremap <silent> <leader>cgl :CocNext<CR>
+nnoremap <silent> <leader>cgh :CocPrev<CR>
 
 " ? CoC extension list
 let g:coc_global_extensions = [
@@ -247,9 +248,9 @@ function! s:build_go_files()
 endfunction
 
 " ? Key bindings for build, run, test, etc.
-autocmd FileType go nmap <leader>gob :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>gor <Plug>(go-run)
-autocmd FileType go nmap <leader>got <Plug>(go-test)
+" autocmd FileType go nmap <leader>gob :<C-u>call <SID>build_go_files()<CR>
+" autocmd FileType go nmap <leader>gor <Plug>(go-run)
+" autocmd FileType go nmap <leader>got <Plug>(go-test)
 
 " ? Disable `:GoDef` shortcut (CoC already have it)
 let g:go_def_mapping_enabled = 0
